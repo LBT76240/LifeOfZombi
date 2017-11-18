@@ -36,6 +36,19 @@ public class Character : Interactible {
     /// <summary>
     ///     The character rotates to look at the mouse
     /// </summary>
+
+    /// 
+
+    private bool isWalking;
+
+    public bool IsWalking
+    {
+        get
+        {
+            return this.isWalking;
+        }
+    }
+
     
     void FaceClickedPoint() {
         Vector3 mousePosition = Input.mousePosition;
@@ -65,6 +78,9 @@ public class Character : Interactible {
 
     // Use this for initialization
     void Start () {
+
+        isWalking = false;
+
         target = transform.position;
         action = Action.Prendre;
         Animator = GetComponent<Animator>();
@@ -94,6 +110,9 @@ public class Character : Interactible {
                     audioSource.clip = walkSound;
                     audioSource.loop = true;
                     audioSource.Play();
+
+                    isWalking = true;
+
                 }
                 //Animator.enabled = true;
             }
@@ -112,6 +131,9 @@ public class Character : Interactible {
             }
             
             Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
+
+            isWalking = false;
+
         }
     }
 
