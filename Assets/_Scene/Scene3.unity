@@ -228,7 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5163790a00da948aaaed2aa44eb87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSprite: {fileID: 0}
+  curMod: 0
+  hotspot: {x: 0, y: 0}
+  action: 4
   nextLevel: 2
 --- !u!23 &1480516375
 MeshRenderer:

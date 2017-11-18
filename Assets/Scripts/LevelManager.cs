@@ -34,8 +34,11 @@ public class LevelManager : Clickable {
 
     protected override void OnMouseDownAction()
     {
+
+        Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
         
-            SceneManager.LoadScene("Scene"+nextLevel);
+        Cursor.SetCursor(test, hotspot, curMod);
+        SceneManager.LoadScene("Scene"+nextLevel);
        
 
     }
