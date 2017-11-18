@@ -11,6 +11,8 @@ public enum Item {
 
 public class GameManager : MonoBehaviour {
 
+    public CursorMode curMod = CursorMode.Auto;
+    public Vector2 hotspot = Vector2.zero;
     public Sprite spriteDefault;
     public Sprite spriteChat;
     public Sprite spritePiece;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int time;
 
+    public bool currently_selecting = false ;
+
     List<bool> actions;
 
     public Texture2D defaultCursor;
@@ -52,6 +56,32 @@ public class GameManager : MonoBehaviour {
     public Texture2D textureCasquette;
     public Texture2D texturePoilDeChat;
     public Texture2D textureOsDeGrandMere;
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    [Tooltip("Music played in the graveyard")]
+    AudioClip graveYardSound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city")]
+    AudioClip citySound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city when humain again")]
+    AudioClip cityHumainSound;
+
+    public void playMusicGraveYard() {
+        audioSource.clip = graveYardSound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void playMusicCity() {
+        audioSource.clip = citySound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
 
     public Texture2D getTexture(Action action) {
         switch (action) {
@@ -199,6 +229,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        audioSource = GetComponent<AudioSource>();
         items = new List<Item>();
 
     }
@@ -210,6 +241,23 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+		if(Input.GetMouseButtonDown(1))
+        {
+            resetCanSelect();
+            
+        }
 	}
+
+    public void resetCanSelect()
+    {
+        if(currently_selecting)
+        {
+            for(int i=0;i<items.Count;i++)
+            {
+                GameObject.Find("ImageItem" + (i+1)).GetComponent<MenuSelector>().can_select = true;
+            }
+            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+            currently_selecting = false;
+        }
+    }
 }

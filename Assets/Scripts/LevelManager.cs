@@ -41,6 +41,15 @@ public class LevelManager : Clickable {
         Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
         Cursor.SetCursor(test, hotspot, curMod);
 
+        if(NextLevel==1) {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicGraveYard();
+        } else {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
+        }
+        SceneManager.LoadScene("Scene"+nextLevel);
+       
+
+
         StartCoroutine(FinishWalking());
     
     }
