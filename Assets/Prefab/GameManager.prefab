@@ -73,3 +73,13 @@ MonoBehaviour:
   gaucheCursor: {fileID: 2800000, guid: ed89f266f3fb59b4dab49bca49d5525c, type: 3}
   droiteCursor: {fileID: 2800000, guid: 86e3a6c632f0f39489f0b506e9339baf, type: 3}
   textureChat: {fileID: 2800000, guid: 313694751a0f9f44e9ab21713e7cf61d, type: 3}
+  texturePiece: {fileID: 2800000, guid: 65850bf1ef1657c4baca01e834d6b3e2, type: 3}
+  textureFleurFleuriste: {fileID: 2800000, guid: 82b7c78fc6acde84e852744dc8602f76,
+    type: 3}
+  textureFleurCimetiere: {fileID: 2800000, guid: e6ccbf2ec09b21b4fa4c84d3dbd64768,
+    type: 3}
+  textureBallon: {fileID: 2800000, guid: b340f5e51fc6e2446ab1b1ba348a465c, type: 3}
+  textureCasquette: {fileID: 2800000, guid: e36961557768f9e4490862db68d4aad6, type: 3}
+  texturePoilDeChat: {fileID: 2800000, guid: cb272973f485a4449a4358036f9fe08d, type: 3}
+  textureOsDeGrandMere: {fileID: 2800000, guid: 90b6868385e06ef45b55128f6aa3136f,
+    type: 3}

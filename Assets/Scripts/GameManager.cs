@@ -45,6 +45,13 @@ public class GameManager : MonoBehaviour {
     public Texture2D gaucheCursor;
     public Texture2D droiteCursor;
     public Texture2D textureChat;
+    public Texture2D texturePiece;
+    public Texture2D textureFleurFleuriste;
+    public Texture2D textureFleurCimetiere;
+    public Texture2D textureBallon;
+    public Texture2D textureCasquette;
+    public Texture2D texturePoilDeChat;
+    public Texture2D textureOsDeGrandMere;
 
     public Texture2D getTexture(Action action) {
         switch (action) {
@@ -92,6 +99,20 @@ public class GameManager : MonoBehaviour {
         {
             case Item.Chat:
                 return textureChat;
+            case Item.Piece:
+                return texturePiece;
+            case Item.FleurFleuriste:
+                return textureFleurFleuriste;
+            case Item.FleurCimetiere:
+                return textureFleurCimetiere;
+            case Item.Ballon:
+                return textureBallon;
+            case Item.Casquette:
+                return textureCasquette;
+            case Item.PoilDeChat:
+                return texturePoilDeChat;
+            case Item.OsDeGrandMere:
+                return textureOsDeGrandMere;
             default:
                 return defaultCursor;
         }
