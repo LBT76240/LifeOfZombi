@@ -265,10 +265,32 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1128523562754008, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
+      propertyPath: m_TagString
+      value: background
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114768690530253558, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &152963982 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1128523562754008, guid: 640d22598a74af64e89376b4f4d1c35c,
+    type: 2}
+  m_PrefabInternal: {fileID: 152963981}
+--- !u!114 &152963983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152963982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a91826bd4a26c49b2c16ed8f4e3520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRue: {fileID: 21300000, guid: bb8d2ee4b6c39a5488abe23aff95166c, type: 3}
+  spriteCimetiere: {fileID: 21300000, guid: e63f4960a7743274c9b54be8f0ef2a80, type: 3}
 --- !u!1 &721277001
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcb791a6d3ba114cbd4f2ddb6cef417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastScene: 0
+  currentScene: 0
+  changeBackGround: {fileID: 152963983}
   curMod: 0
   hotspot: {x: 0, y: 0}
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}

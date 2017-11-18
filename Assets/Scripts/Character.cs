@@ -87,6 +87,23 @@ public class Character : Interactible {
         Animator.StopPlayback();
         Animator.enabled = true;
         audioSource = GetComponent<AudioSource>();
+
+        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 1) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 0) {
+                Vector2 pos;
+                pos.x = -2.22f;
+                pos.y = 2.78f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            } else {
+                Vector2 pos;
+                pos.x = 7.4f;
+                pos.y = 2.78f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            }
+        }
+        target = transform.position;
     }
 	
 	// Update is called once per frame

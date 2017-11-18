@@ -11,6 +11,24 @@ public enum Item {
 
 public class GameManager : MonoBehaviour {
 
+    public int lastScene = 0;
+    public int currentScene;
+    public ChangeBackGround changeBackGround;
+
+    public int getLastScene() {
+        return lastScene;
+    }
+
+    public int getCurrentScene() {
+        return currentScene;
+    }
+
+    public void changeCurrentScene(int value) {
+        lastScene = currentScene;
+        currentScene = value;
+        //changeBackGround.ChangeBack(value);
+    }
+
     public CursorMode curMod = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
     public Sprite spriteDefault;

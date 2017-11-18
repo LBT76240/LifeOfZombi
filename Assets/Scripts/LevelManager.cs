@@ -41,12 +41,8 @@ public class LevelManager : Clickable {
         Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
         Cursor.SetCursor(test, hotspot, curMod);
 
-        if(NextLevel==1) {
-            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicGraveYard();
-        } else {
-            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
-        }
-        SceneManager.LoadScene("Scene"+nextLevel);
+        
+        
        
 
 
@@ -56,7 +52,7 @@ public class LevelManager : Clickable {
 
     IEnumerator FinishWalking()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         bool doneWalking = false;
         while(!doneWalking)
         {
@@ -73,6 +69,12 @@ public class LevelManager : Clickable {
     }
     void ChangeScene()
     {
+        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().changeCurrentScene(NextLevel);
+        if (NextLevel == 1) {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicGraveYard();
+        } else {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
+        }
         SceneManager.LoadScene("Scene" + nextLevel);
 
     }
