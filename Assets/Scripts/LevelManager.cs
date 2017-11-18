@@ -39,4 +39,9 @@ public class LevelManager : Clickable {
        
 
     }
+
+    protected override void OnMouseRightAction()
+    {
+        return;
+    }
 }
