@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
   collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
+  mangerCursor: {fileID: 0}
   curMod: 0
   hotspot: {x: 0, y: 0}
 --- !u!4 &503311993
@@ -252,7 +253,6 @@ GameObject:
   - component: {fileID: 1237258536}
   - component: {fileID: 1237258538}
   - component: {fileID: 1237258539}
-  - component: {fileID: 1237258540}
   m_Layer: 0
   m_Name: TestSprite
   m_TagString: Collectible
@@ -328,6 +328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSprite: {fileID: 0}
   indiceAction: -1
+  defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
+  collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
+  mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
+  curMod: 0
+  hotspot: {x: 0, y: 0}
 --- !u!61 &1237258539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -353,18 +358,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &1237258540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1237258535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dfb2af5623b96d418eb71eff071c117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
-  collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
-  curMod: 0
-  hotspot: {x: 0, y: 0}
