@@ -25,7 +25,7 @@ public class Character : Interactible {
     [SerializeField]
     [Tooltip("Sound played when walking")]
     AudioClip walkSound;
-
+ 
     private AudioSource audioSource;
 
     /// <summary>
@@ -74,6 +74,8 @@ public class Character : Interactible {
         if (target.x > maxX) {
             target.x = maxX;
         }
+
+        
     }
 
     // Use this for initialization
@@ -136,8 +138,9 @@ public class Character : Interactible {
         }
 
         //  Move only if the target is not on the character
-        if (!isTargetOverWhenClicking)
+        
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
 
         //  If the character reaches the target, stop playing the walking sound
         if (Mathf.Abs(transform.position.x - target.x) < 0.1) {
@@ -146,7 +149,6 @@ public class Character : Interactible {
                 audioSource.loop = false;
                 audioSource.Stop();
             }
-            
             Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
 
             isWalking = false;
@@ -159,7 +161,7 @@ public class Character : Interactible {
         audioSource.clip = rhhhSound;
         audioSource.loop = false;
         audioSource.Play();
-        
+        target.x = this.transform.position.x;
     }
 
     protected override void OnMouseRightAction() {

@@ -708,6 +708,131 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+--- !u!1 &496493012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 496493014}
+  - component: {fileID: 496493013}
+  - component: {fileID: 496493015}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: gamemanager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &496493013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496493012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fcb791a6d3ba114cbd4f2ddb6cef417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curMod: 0
+  hotspot: {x: 0, y: 0}
+  spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
+  spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
+  spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
+  spriteFleurFleuriste: {fileID: 21300000, guid: 305b370832ba4714482801ba138b83e7,
+    type: 3}
+  spriteFleurCimetiere: {fileID: 21300000, guid: 6a4293051d2ccf140a0053ee4a88634f,
+    type: 3}
+  spriteBallon: {fileID: 21300000, guid: f14e4cd18a4d73549a066bf363969518, type: 3}
+  spriteCasquette: {fileID: 21300000, guid: afe73f1288aef3c45a688f8f234cf810, type: 3}
+  spritePoilDeChat: {fileID: 21300000, guid: a8291f1556bbaba4bb987b522f6abaff, type: 3}
+  spriteOsDeGrandMere: {fileID: 21300000, guid: 0d3ae13f9c364f84495ea09b4c464ea8,
+    type: 3}
+  currentLevel: 0
+  maxMoral: 15
+  minMoral: -10
+  time: 0
+  currently_selecting: 0
+  defaultCursor: {fileID: 2800000, guid: 705e401274e00ea4988a8773c12de4b5, type: 3}
+  collectibleCursor: {fileID: 2800000, guid: ec03cc10c8f53b44c8b1c706e082a5b0, type: 3}
+  mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
+  gaucheCursor: {fileID: 2800000, guid: ed89f266f3fb59b4dab49bca49d5525c, type: 3}
+  droiteCursor: {fileID: 2800000, guid: 86e3a6c632f0f39489f0b506e9339baf, type: 3}
+  textureChat: {fileID: 2800000, guid: 313694751a0f9f44e9ab21713e7cf61d, type: 3}
+  texturePiece: {fileID: 2800000, guid: 65850bf1ef1657c4baca01e834d6b3e2, type: 3}
+  textureFleurFleuriste: {fileID: 2800000, guid: 82b7c78fc6acde84e852744dc8602f76,
+    type: 3}
+  textureFleurCimetiere: {fileID: 2800000, guid: e6ccbf2ec09b21b4fa4c84d3dbd64768,
+    type: 3}
+  textureBallon: {fileID: 2800000, guid: b340f5e51fc6e2446ab1b1ba348a465c, type: 3}
+  textureCasquette: {fileID: 2800000, guid: e36961557768f9e4490862db68d4aad6, type: 3}
+  texturePoilDeChat: {fileID: 2800000, guid: cb272973f485a4449a4358036f9fe08d, type: 3}
+  textureOsDeGrandMere: {fileID: 2800000, guid: 90b6868385e06ef45b55128f6aa3136f,
+    type: 3}
+--- !u!4 &496493014
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496493012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496493015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496493012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9cd28319395945458caea5f8a5eecf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1060608148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1060608150}
+  - component: {fileID: 1060608149}
+  m_Layer: 0
+  m_Name: AudioListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1060608149
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060608148}
+  m_Enabled: 1
+--- !u!4 &1060608150
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060608148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2047703, y: 1.399086, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &1237258535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1213,16 @@ Prefab:
     - target: {fileID: 4703023584036844, guid: 5e961d2ec47172f4293ada26d3a28e85, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61670133610382178, guid: 5e961d2ec47172f4293ada26d3a28e85,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.14938468
+      objectReference: {fileID: 0}
+    - target: {fileID: 61670133610382178, guid: 5e961d2ec47172f4293ada26d3a28e85,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.82123065
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e961d2ec47172f4293ada26d3a28e85, type: 2}
