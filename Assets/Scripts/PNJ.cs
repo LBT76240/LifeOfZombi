@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PNJ : Interactible {
+public abstract class PNJ : Interactible {
 
     /// <summary>
     ///     PNJ's name
@@ -25,15 +25,7 @@ public class PNJ : Interactible {
 		
 	}
 
-    protected override void OnMouseDownAction() {
-        return;
-    }
+    abstract public void Interact(Action action);
 
-    protected override void OnMouseRightAction() {
-        return;
-    }
-
-    private void OnMouseOver() {
-        return;
-    }
+    abstract public void Interact(Item item);
 }
