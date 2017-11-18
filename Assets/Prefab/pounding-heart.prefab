@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212244798255070124}
   - component: {fileID: 95828073698020086}
   m_Layer: 0
-  m_Name: pounding-heart_0 1
+  m_Name: pounding-heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

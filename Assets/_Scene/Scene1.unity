@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129967531
 GameObject:
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 129967532}
   m_Layer: 0
   m_Name: TestSprite (7)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ Transform:
   m_LocalScale: {x: 30, y: 17.55, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406945228
 GameObject:
@@ -480,7 +480,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-
 --- !u!1 &415802428
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +493,7 @@ GameObject:
   - component: {fileID: 415802429}
   m_Layer: 0
   m_Name: TestSprite (4)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,7 +592,7 @@ Transform:
   m_LocalScale: {x: 11.25, y: 11.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448075371
 GameObject:
@@ -608,7 +607,7 @@ GameObject:
   - component: {fileID: 448075372}
   m_Layer: 0
   m_Name: TestSprite (2)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,7 +763,7 @@ GameObject:
   - component: {fileID: 1237258539}
   m_Layer: 0
   m_Name: TestSprite
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -878,7 +877,7 @@ GameObject:
   - component: {fileID: 1713658100}
   m_Layer: 0
   m_Name: TestSprite (3)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,7 +976,7 @@ Transform:
   m_LocalScale: {x: 28.499998, y: 39.899998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1775413219
 GameObject:
@@ -992,7 +991,7 @@ GameObject:
   - component: {fileID: 1775413220}
   m_Layer: 0
   m_Name: TestSprite (6)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1090,7 @@ Transform:
   m_LocalScale: {x: 18.05, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1975755034
 Prefab:
@@ -1158,7 +1157,7 @@ GameObject:
   - component: {fileID: 1992206919}
   m_Layer: 0
   m_Name: TestSprite (1)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1296,7 +1295,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4158525044376084, guid: e5e54051575e49243aa027951be0c935, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5e54051575e49243aa027951be0c935, type: 2}
@@ -1314,7 +1313,7 @@ GameObject:
   - component: {fileID: 2128761012}
   m_Layer: 0
   m_Name: TestSprite (5)
-  m_TagString: Untagged
+  m_TagString: object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1413,5 +1412,5 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
