@@ -41,7 +41,11 @@ public class Collectible : Interactible {
         
         if(action == Action.Prendre) {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(item);
-            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+            Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+
+            hotspot.x = textureCursor.height / 2;
+            hotspot.y = textureCursor.width / 2;
+            Cursor.SetCursor(textureCursor, hotspot, curMod);
             Destroy(gameObject);
         }
         

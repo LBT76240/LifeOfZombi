@@ -26,7 +26,13 @@ public class Cat : PNJ {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = normalCat;
         audioSource = GetComponent<AudioSource>();
-	}
+
+        listOfAction = new List<Action>();
+        listOfAction.Add(Action.Caresser);
+        listOfAction.Add(Action.Manger);
+        index = 0;
+        action = listOfAction[index];
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -34,12 +40,21 @@ public class Cat : PNJ {
 	}
 
     protected override void OnMouseDownAction() {
-        Interact(Action.Caresser);
+        
+        Interact(action);
         return;
     }
 
-    protected override void OnMouseRightAction() {
-        return;
+    override
+     protected void OnMouseRightAction() {
+        print("Pressed right click.");
+        index++;
+        if (index == listOfAction.Count) {
+            index = 0;
+        }
+        action = listOfAction[index];
+
+        updateCursor();
     }
 
     public override void Interact(Action action) {

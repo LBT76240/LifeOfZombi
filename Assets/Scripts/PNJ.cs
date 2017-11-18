@@ -15,8 +15,11 @@ public abstract class PNJ : Interactible {
     ///     
     /// </summary>
 
-	// Use this for initialization
-	void Start () {
+    protected List<Action> listOfAction;
+    protected int index = -1;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
