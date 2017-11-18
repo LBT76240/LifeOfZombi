@@ -5,13 +5,20 @@ using UnityEngine;
 
 
 public enum Item {
-    Chat
+    Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
 };
 
 public class GameManager : MonoBehaviour {
 
     public Sprite spriteDefault;
     public Sprite spriteChat;
+    public Sprite spritePiece;
+    public Sprite spriteFleurFleuriste;
+    public Sprite spriteFleurCimetiere;
+    public Sprite spriteBallon;
+    public Sprite spriteCasquette;
+    public Sprite spritePoilDeChat;
+    public Sprite spriteOsDeGrandMere;
 
     [SerializeField]
     int currentLevel;
@@ -58,6 +65,20 @@ public class GameManager : MonoBehaviour {
         switch (item) {
             case Item.Chat:
                 return spriteChat;
+            case Item.Ballon:
+                return spriteBallon;
+            case Item.Piece:
+                return spritePiece;
+            case Item.FleurFleuriste:
+                return spriteFleurFleuriste;
+            case Item.FleurCimetiere:
+                return spriteFleurCimetiere;
+            case Item.Casquette:
+                return spriteCasquette;
+            case Item.PoilDeChat:
+                return spritePoilDeChat;
+            case Item.OsDeGrandMere:
+                return spriteOsDeGrandMere;
             default:
                 return spriteDefault;
         }

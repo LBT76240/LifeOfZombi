@@ -53,6 +53,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
   spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
+  spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
+  spriteFleurFleuriste: {fileID: 21300000, guid: 305b370832ba4714482801ba138b83e7,
+    type: 3}
+  spriteFleurCimetiere: {fileID: 21300000, guid: 6a4293051d2ccf140a0053ee4a88634f,
+    type: 3}
+  spriteBallon: {fileID: 21300000, guid: f14e4cd18a4d73549a066bf363969518, type: 3}
+  spriteCasquette: {fileID: 21300000, guid: afe73f1288aef3c45a688f8f234cf810, type: 3}
+  spritePoilDeChat: {fileID: 21300000, guid: a8291f1556bbaba4bb987b522f6abaff, type: 3}
+  spriteOsDeGrandMere: {fileID: 21300000, guid: 0d3ae13f9c364f84495ea09b4c464ea8,
+    type: 3}
   currentLevel: 0
   maxMoral: 10
   minMoral: -20
