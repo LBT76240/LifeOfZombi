@@ -35,6 +35,15 @@ public class Cat : PNJ {
         index = 0;
         action = listOfAction[index];
         zombi = GameObject.Find("zombi");
+
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count; i++)
+        {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_zombie)
+            {
+                spriteRenderer.sprite = zombieCat;
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -78,15 +87,25 @@ public class Cat : PNJ {
 
         }
         if (Mathf.Abs(target.x - zombi.transform.position.x) < 0.2) {
+            int i = isAlreadyStated();
             switch (action) {
                 case Action.Caresser:
                     audioSource.clip = caressedSound;
                     audioSource.Play();
+                    if (i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
+                    {
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
+                    }
                     break;
                 case Action.Manger:
                     //  Transform to ZOMBIIIIIIIE
-                    spriteRenderer.sprite = zombieCat;
-                    GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.PoilDeChat);
+                    i = isAlreadyStated();
+                    if(i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
+                    {
+                        spriteRenderer.sprite = zombieCat;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
+                    }
+
                     break;
                 default:
                     break;

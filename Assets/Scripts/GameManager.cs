@@ -7,6 +7,11 @@ public enum Item {
     Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
 };
 
+public enum PNJ_State
+{
+    Chat_Humain, Chat_Zombie, Vieille_Humain, Vieille_Zombie, Femme_Humain, Femme_Zombie, Vendeur_Humain, Vendeur_Zombie
+}
+
 public class GameManager : MonoBehaviour {
 
     public int lastScene = 0;
@@ -44,6 +49,8 @@ public class GameManager : MonoBehaviour {
 
     List<Item> items;
     public List<Item> items_taken;
+
+    public List<PNJ_State> state_pnj;
 
     [SerializeField]
     int maxMoral;
