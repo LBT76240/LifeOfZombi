@@ -82,7 +82,7 @@ public class LevelManager : Clickable {
         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().changeCurrentScene(NextLevel);
         if (NextLevel == 1) {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicGraveYard();
-        } else {
+        } else if(NextLevel == 2 && GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene()==1) {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
         }
         SceneManager.LoadScene("Scene" + nextLevel);
