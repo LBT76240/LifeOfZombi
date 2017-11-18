@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField]
     Slider slider;
-
+    List<Sprite> listspriteitem;
     GameObject gameManager;  
 	// Use this for initialization
 	void Start () {
@@ -36,4 +36,10 @@ public class UIManager : MonoBehaviour {
             GameObject.Find("SliderFill").GetComponent<Image>().color = new Color(1, 1, 1);
         }
     }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
 }

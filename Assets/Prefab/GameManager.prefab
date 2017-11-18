@@ -69,6 +69,7 @@ MonoBehaviour:
   time: 0
   defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
   collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
-  mangerCursor: {fileID: 2800000, guid: 43e8830aa679c974bab09d254c0b46d4, type: 3}
+  mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
   gaucheCursor: {fileID: 2800000, guid: ed89f266f3fb59b4dab49bca49d5525c, type: 3}
   droiteCursor: {fileID: 2800000, guid: 86e3a6c632f0f39489f0b506e9339baf, type: 3}
+  textureChat: {fileID: 2800000, guid: 313694751a0f9f44e9ab21713e7cf61d, type: 3}
