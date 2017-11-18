@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+public enum Item {
+    Chat
+};
+
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
     int currentLevel;
 
-    List<Collectible> items;
+    List<Item> items;
 
     [SerializeField]
     int maxMoral;
@@ -39,6 +45,9 @@ public class GameManager : MonoBehaviour {
             
     }
 
+    public void addItem (Item item) {
+        items.Add(item);
+    }
 
     public int CurrentLevel
     {
@@ -52,7 +61,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public List<Collectible> Items
+    public List<Item> Items
     {
         get
         {
@@ -114,8 +123,9 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        items = new List<Item>();
+
+    }
 
     void Awake()
     {
