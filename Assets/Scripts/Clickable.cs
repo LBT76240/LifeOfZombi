@@ -19,9 +19,12 @@ public abstract class Clickable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
 
-        Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+        Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+
+        hotspot.x = textureCursor.height/2;
+        hotspot.y = textureCursor.width / 2;
+        Cursor.SetCursor(textureCursor, hotspot, curMod);
         
     }
 	
@@ -58,11 +61,12 @@ public abstract class Clickable : MonoBehaviour {
 
     public void updateCursor() {
         
-        Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(action);
-        if (test == null) {
-            print("null text");
-        }
-        Cursor.SetCursor(test, hotspot, curMod);
+        Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(action);
+        
+        hotspot.x = textureCursor.height / 2;
+        hotspot.y = textureCursor.width / 2;
+
+        Cursor.SetCursor(textureCursor, hotspot, curMod);
         
     }
     void OnMouseEnter() {
@@ -90,7 +94,11 @@ public abstract class Clickable : MonoBehaviour {
     void OnMouseExit() {
         if (!GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
-            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+            Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+
+            hotspot.x = textureCursor.height / 2;
+            hotspot.y = textureCursor.width / 2;
+            Cursor.SetCursor(textureCursor, hotspot, curMod);
         }
     }
 

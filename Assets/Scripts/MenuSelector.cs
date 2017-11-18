@@ -16,27 +16,26 @@ public class MenuSelector : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        GetComponent<BoxCollider2D>().size = new Vector2(this.GetComponentInParent<RectTransform>().rect.width, this.GetComponentInParent<RectTransform>().rect.height);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<BoxCollider2D>().size = new Vector2(this.GetComponentInParent<RectTransform>().rect.width, this.GetComponentInParent<RectTransform>().rect.height);
-        GetComponent<BoxCollider2D>().offset = new Vector2( - this.GetComponentInParent<RectTransform>().rect.width / 2,
+        
+        
+        /*GetComponent<BoxCollider2D>().offset = new Vector2( - this.GetComponentInParent<RectTransform>().rect.width / 2,
                                                                    + this.GetComponentInParent<RectTransform>().rect.height / 2);
-        GetComponent<BoxCollider2D>().transform.position = GetComponentInParent<RectTransform>().transform.position;
+        GetComponent<BoxCollider2D>().transform.position = GetComponentInParent<RectTransform>().transform.position;*/
     }
 
     public void updateCursor()
     {
+        Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Prendre);
 
-        Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(action);
-        if (test == null)
-        {
-            print("null text");
-        }
-        Cursor.SetCursor(test, hotspot, curMod);
+        hotspot.x = textureCursor.height / 2;
+        hotspot.y = textureCursor.width / 2;
+        Cursor.SetCursor(textureCursor, hotspot, curMod);
 
     }
 
@@ -52,6 +51,11 @@ public class MenuSelector : MonoBehaviour
     {
         if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
+            
+
+            hotspot.x = cursorMouse.height / 2;
+            hotspot.y = cursorMouse.width / 2;
+
             Cursor.SetCursor(cursorMouse, hotspot, curMod);
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting = true;
             can_select = false;
@@ -62,7 +66,11 @@ public class MenuSelector : MonoBehaviour
     {
         if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
-            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+            Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+
+            hotspot.x = textureCursor.height / 2;
+            hotspot.y = textureCursor.width / 2;
+            Cursor.SetCursor(textureCursor, hotspot, curMod);
         }
     }
 
