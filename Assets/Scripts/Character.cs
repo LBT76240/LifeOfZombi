@@ -56,31 +56,32 @@ public class Character : Interactible {
         action = Action.Prendre;
         Animator = GetComponent<Animator>();
         Animator.StopPlayback();
-        Animator.enabled = false;
+        Animator.enabled = true;
         audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (Input.GetMouseButtonDown(0)) {
-            UpdateTarget();
-            Animator.enabled = true;
-            isTargetOverWhenClicking = GetComponent<BoxCollider2D>().bounds.Contains(target);
+            
+            Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            tempTarget.y = transform.position.y;    //  Horizontal movement only
+            tempTarget.z = transform.position.z;
+
+            isTargetOverWhenClicking = GetComponent<BoxCollider2D>().bounds.Contains(tempTarget);
 
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
+                print("loin");
+                UpdateTarget();
                 FaceClickedPoint();
                 audioSource.clip = walkSound;
                 audioSource.loop = true;
                 audioSource.Play();
+                //Animator.enabled = true;
             }
-        }
-
-        if (transform.position == target)
-        {
-            Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
-
         }
 
         //  Move only if the target is not on the character
@@ -88,16 +89,23 @@ public class Character : Interactible {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         //  If the character reaches the target, stop playing the walking sound
-        if (Vector3.Distance(transform.position, target) < 0.1) {
-            audioSource.loop = false;
-            audioSource.Stop();
+        if (Mathf.Abs(transform.position.x - target.x) < 0.1) {
+            if(audioSource.clip == walkSound)
+            {
+                audioSource.loop = false;
+                audioSource.Stop();
+            }
+            
+            Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
         }
     }
 
 
     override protected void OnMouseDownAction() {
         audioSource.clip = rhhhSound;
+        audioSource.loop = false;
         audioSource.Play();
+        
     }
 
     protected override void OnMouseRightAction() {
