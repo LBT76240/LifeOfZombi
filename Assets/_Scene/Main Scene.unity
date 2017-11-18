@@ -1025,6 +1025,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0.5562744
       objectReference: {fileID: 0}
+    - target: {fileID: 114144490175669068, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114768690530253558, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
@@ -1183,8 +1188,8 @@ MonoBehaviour:
   spriteOsDeGrandMere: {fileID: 21300000, guid: 0d3ae13f9c364f84495ea09b4c464ea8,
     type: 3}
   currentLevel: 0
-  maxMoral: 0
-  minMoral: 0
+  maxMoral: 15
+  minMoral: -10
   time: 0
   defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
   collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
