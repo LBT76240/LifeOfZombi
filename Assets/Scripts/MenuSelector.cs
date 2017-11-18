@@ -35,7 +35,9 @@ public class MenuSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GetComponent<BoxCollider2D>().size = new Vector2(this.GetComponentInParent<RectTransform>().rect.width, this.GetComponentInParent<RectTransform>().rect.height);
+        GetComponent<BoxCollider2D>().offset = new Vector2( - this.GetComponentInParent<RectTransform>().rect.width / 2,
+                                                                   + this.GetComponentInParent<RectTransform>().rect.height / 2);
     }
 
     public void updateCursor()
