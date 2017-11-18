@@ -31,6 +31,7 @@ public class Character : Interactible {
     /// 
     void UpdateTarget() {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target.y = transform.position.y;    //  Horizontal movement only
         target.z = transform.position.z;
     }
 
