@@ -20,6 +20,10 @@ public abstract class Clickable : MonoBehaviour {
         //TODO
     }
 
-    protected abstract  void OnMouseDown();
+    protected abstract  void OnMouseDownAction();
+
+    public void OnMouseDown() {
+        OnMouseDownAction();
+    }
 
 }
