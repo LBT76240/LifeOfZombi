@@ -11,6 +11,8 @@ public enum Item {
 
 public class GameManager : MonoBehaviour {
 
+    public CursorMode curMod = CursorMode.Auto;
+    public Vector2 hotspot = Vector2.zero;
     public Sprite spriteDefault;
     public Sprite spriteChat;
     public Sprite spritePiece;
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     int time;
+
+    public bool currently_selecting = false ;
 
     List<bool> actions;
 
@@ -211,6 +215,23 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+		if(Input.GetMouseButtonDown(1))
+        {
+            resetCanSelect();
+            
+        }
 	}
+
+    public void resetCanSelect()
+    {
+        if(currently_selecting)
+        {
+            for(int i=0;i<items.Count;i++)
+            {
+                GameObject.Find("ImageItem" + (i+1)).GetComponent<MenuSelector>().can_select = true;
+            }
+            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+            currently_selecting = false;
+        }
+    }
 }
