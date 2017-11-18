@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95927902792842134}
   - component: {fileID: 61955308057096498}
   - component: {fileID: 82947571501476922}
+  - component: {fileID: 114797465459210468}
   m_Layer: 0
   m_Name: zombi
   m_TagString: Untagged
@@ -38,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256439907205552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.22, y: 2.78, z: 0}
-  m_LocalScale: {x: 0.15740632, y: 0.15417215, z: 1}
+  m_LocalPosition: {x: -4.05, y: -0.36, z: 0}
+  m_LocalScale: {x: 0.19092715, y: 0.17380084, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -181,12 +182,25 @@ MonoBehaviour:
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
-  maxX: 8.4
-  minX: -4.4
+  maxX: 7.4
+  minX: -7.4
   minY: -3
   speed: 2.5
   rhhhSound: {fileID: 8300000, guid: aaf4ea0e877cca9419ffb743491ef262, type: 3}
   walkSound: {fileID: 8300000, guid: 89ae74a7b0fe58344abdb73b081fe600, type: 3}
+--- !u!114 &114797465459210468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256439907205552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e904f1434a9645d448d4ba7d7d2b5558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poundingHeart: {fileID: 1059559012519412, guid: 0f5907ec0778cfe4e815f5dce70633e7,
+    type: 2}
 --- !u!212 &212449320352746680
 SpriteRenderer:
   m_ObjectHideFlags: 1
