@@ -10,6 +10,9 @@ public enum Item {
 
 public class GameManager : MonoBehaviour {
 
+    public Sprite spriteDefault;
+    public Sprite spriteChat;
+
     [SerializeField]
     int currentLevel;
 
@@ -49,6 +52,15 @@ public class GameManager : MonoBehaviour {
         }
         
             
+    }
+
+    public Sprite getSprite(Item item) {
+        switch (item) {
+            case Item.Chat:
+                return spriteChat;
+            default:
+                return spriteDefault;
+        }
     }
 
     public void addItem (Item item) {
