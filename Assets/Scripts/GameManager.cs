@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
     public Texture2D defaultCursor;
     public Texture2D collectibleCursor;
     public Texture2D mangerCursor;
+    public Texture2D gaucheCursor;
+    public Texture2D droiteCursor;
 
     public Texture2D getTexture(Action action) {
         switch (action) {
@@ -32,6 +34,10 @@ public class GameManager : MonoBehaviour {
                 return collectibleCursor;
             case Action.Manger:
                 return mangerCursor;
+            case Action.Droite:
+                return droiteCursor;
+            case Action.Gauche:
+                return gaucheCursor;
             default:
                 return defaultCursor;
         }
