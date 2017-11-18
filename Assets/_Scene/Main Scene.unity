@@ -549,6 +549,26 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224318107428729776, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.4812622
+      objectReference: {fileID: 0}
+    - target: {fileID: 224474225332568954, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5310669
+      objectReference: {fileID: 0}
+    - target: {fileID: 224053054296927066, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.53100586
+      objectReference: {fileID: 0}
+    - target: {fileID: 224377257409141996, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5562744
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114768690530253558, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
@@ -582,13 +602,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
   spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
-  spritePiece: {fileID: 0}
-  spriteFleurFleuriste: {fileID: 0}
-  spriteFleurCimetiere: {fileID: 0}
-  spriteBallon: {fileID: 0}
-  spriteCasquette: {fileID: 0}
-  spritePoilDeChat: {fileID: 0}
-  spriteOsDeGrandMere: {fileID: 0}
+  spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
+  spriteFleurFleuriste: {fileID: 21300000, guid: 305b370832ba4714482801ba138b83e7,
+    type: 3}
+  spriteFleurCimetiere: {fileID: 21300000, guid: 6a4293051d2ccf140a0053ee4a88634f,
+    type: 3}
+  spriteBallon: {fileID: 21300000, guid: f14e4cd18a4d73549a066bf363969518, type: 3}
+  spriteCasquette: {fileID: 21300000, guid: afe73f1288aef3c45a688f8f234cf810, type: 3}
+  spritePoilDeChat: {fileID: 21300000, guid: a8291f1556bbaba4bb987b522f6abaff, type: 3}
+  spriteOsDeGrandMere: {fileID: 21300000, guid: 0d3ae13f9c364f84495ea09b4c464ea8,
+    type: 3}
   currentLevel: 0
   maxMoral: 0
   minMoral: 0
@@ -596,8 +619,19 @@ MonoBehaviour:
   defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
   collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
   mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
-  gaucheCursor: {fileID: 0}
-  droiteCursor: {fileID: 0}
+  gaucheCursor: {fileID: 2800000, guid: ed89f266f3fb59b4dab49bca49d5525c, type: 3}
+  droiteCursor: {fileID: 2800000, guid: 86e3a6c632f0f39489f0b506e9339baf, type: 3}
+  textureChat: {fileID: 2800000, guid: 313694751a0f9f44e9ab21713e7cf61d, type: 3}
+  texturePiece: {fileID: 2800000, guid: 65850bf1ef1657c4baca01e834d6b3e2, type: 3}
+  textureFleurFleuriste: {fileID: 2800000, guid: 82b7c78fc6acde84e852744dc8602f76,
+    type: 3}
+  textureFleurCimetiere: {fileID: 2800000, guid: e6ccbf2ec09b21b4fa4c84d3dbd64768,
+    type: 3}
+  textureBallon: {fileID: 2800000, guid: b340f5e51fc6e2446ab1b1ba348a465c, type: 3}
+  textureCasquette: {fileID: 2800000, guid: e36961557768f9e4490862db68d4aad6, type: 3}
+  texturePoilDeChat: {fileID: 2800000, guid: cb272973f485a4449a4358036f9fe08d, type: 3}
+  textureOsDeGrandMere: {fileID: 2800000, guid: 90b6868385e06ef45b55128f6aa3136f,
+    type: 3}
 --- !u!4 &1920961547
 Transform:
   m_ObjectHideFlags: 0
