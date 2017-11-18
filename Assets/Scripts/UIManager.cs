@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField]
     Slider slider;
-
     List<Sprite> listspriteitem;
     GameObject gameManager;  
 	// Use this for initialization
@@ -35,11 +34,6 @@ public class UIManager : MonoBehaviour {
         {
             GameObject.Find("SliderBack").GetComponent<Image>().color = new Color(1, 1, 1);
             GameObject.Find("SliderFill").GetComponent<Image>().color = new Color(1, 1, 1);
-        }
-
-        for(int i=0;i<gameManager.GetComponent<GameManager>().Items.Count;i++)
-        {
-            GameObject.Find("ImageItem" + (i+1)).GetComponent<Image>().sprite = gameManager.GetComponent<GameManager>().getSprite(gameManager.GetComponent<GameManager>().Items[i]);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
     public Texture2D mangerCursor;
     public Texture2D gaucheCursor;
     public Texture2D droiteCursor;
+    public Texture2D textureChat;
 
     public Texture2D getTexture(Action action) {
         switch (action) {
@@ -63,8 +65,22 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public Texture2D getTexture(Item item)
+    {
+        switch (item)
+        {
+            case Item.Chat:
+                return textureChat;
+            default:
+                return defaultCursor;
+        }
+    }
+
     public void addItem (Item item) {
         items.Add(item);
+        GameObject.Find("ImageItem" + (items.Count)).GetComponent<Image>().sprite = GetComponent<GameManager>().getSprite(GetComponent<GameManager>().Items[items.Count -1]);
+        GameObject.Find("ImageItem" + (items.Count)).GetComponent<MenuSelector>().cursorMouse = GetComponent<GameManager>().getTexture(item);
+        GameObject.Find("ImageItem" + (items.Count)).GetComponent<MenuSelector>().can_select = true;
     }
 
     public int CurrentLevel
