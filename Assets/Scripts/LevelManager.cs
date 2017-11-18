@@ -9,6 +9,7 @@ public class LevelManager : Clickable {
     int nextLevel;
 
     GameObject zombi;
+    Vector3 target;
 
     public int NextLevel
     {
@@ -37,33 +38,40 @@ public class LevelManager : Clickable {
 
     protected override void OnMouseDownAction()
     {
-
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
         Cursor.SetCursor(test, hotspot, curMod);
-
+            
         StartCoroutine(FinishWalking());
-    
     }
 
     IEnumerator FinishWalking()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         bool doneWalking = false;
         while(!doneWalking)
         {
             yield return new WaitForSeconds(0.1f);
             if (!zombi.GetComponent<Character>().IsWalking)
             {
-                doneWalking = true;
-                
+                doneWalking = true;              
             }
             
         }
 
-        ChangeScene();
+        if(Mathf.Abs(GameObject.Find("zombi").transform.position.x-target.x) <= 0.7)
+        {
+            ChangeScene();
+        }
     }
     void ChangeScene()
     {
+        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().changeCurrentScene(NextLevel);
+        if (NextLevel == 1) {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicGraveYard();
+        } else {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
+        }
         SceneManager.LoadScene("Scene" + nextLevel);
 
     }

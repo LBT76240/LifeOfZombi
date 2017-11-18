@@ -6,6 +6,9 @@ TagManager:
   tags:
   - gamemanager
   - uimanager
+  - next
+  - previous
+  - background
   layers:
   - Default
   - TransparentFX
