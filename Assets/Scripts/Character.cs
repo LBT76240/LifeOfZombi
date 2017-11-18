@@ -7,6 +7,11 @@ public class Character : Interactible {
 
     Vector3 target;
 
+    public float maxX = 8;
+    public float minX = -8;
+
+    public float minY = -3;
+
     [SerializeField]
     [Tooltip("Sets the movement speed of the zombie")]
     float speed = 1.5f;
@@ -48,6 +53,14 @@ public class Character : Interactible {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.y = transform.position.y;    //  Horizontal movement only
         target.z = transform.position.z;
+
+        if(target.x<minX) {
+            target.x = minX;
+        }
+
+        if (target.x > maxX) {
+            target.x = maxX;
+        }
     }
 
     // Use this for initialization
@@ -74,12 +87,14 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
-                print("loin");
-                UpdateTarget();
-                FaceClickedPoint();
-                audioSource.clip = walkSound;
-                audioSource.loop = true;
-                audioSource.Play();
+                if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y) {
+                    print("loin");
+                    UpdateTarget();
+                    FaceClickedPoint();
+                    audioSource.clip = walkSound;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
                 //Animator.enabled = true;
             }
         }
