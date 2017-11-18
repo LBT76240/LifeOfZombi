@@ -47,7 +47,8 @@ public class LevelManager : Clickable {
 
     IEnumerator FinishWalking()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 target = zombi.GetComponent<Character>().getTarget();
         bool doneWalking = false;
         while(!doneWalking)
         {
@@ -59,7 +60,7 @@ public class LevelManager : Clickable {
             
         }
 
-        if(Mathf.Abs(GameObject.Find("zombi").transform.position.x-target.x) <= 0.7)
+        if(Mathf.Abs(target.x - zombi.transform.position.x) <= 0.2)
         {
             ChangeScene();
         }
