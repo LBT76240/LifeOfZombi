@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Action {
-    Prendre, Manger,Default,Droite,Gauche, Caresser
+    Prendre, Manger, Default, Droite, Gauche, Caresser, DontHelp, Help
 };
 
 public abstract class Clickable : MonoBehaviour {

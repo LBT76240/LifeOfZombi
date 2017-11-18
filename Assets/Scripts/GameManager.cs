@@ -111,6 +111,10 @@ public class GameManager : MonoBehaviour {
         switch (action) {
             case Action.Prendre:
                 return collectibleCursor;
+            case Action.Help:
+                return collectibleCursor;
+            case Action.DontHelp:
+                return collectibleCursor;
             case Action.Caresser:
                 return collectibleCursor;
             case Action.Manger:
