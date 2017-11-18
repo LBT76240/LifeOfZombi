@@ -8,9 +8,9 @@ public class Collectible : Interactible {
 
 
 
-   
 
 
+    public Item item;
     
 
     List<Action> listOfAction;
@@ -40,6 +40,7 @@ public class Collectible : Interactible {
         print("Onclick");
         
         if(action == Action.Prendre) {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(item);
             Destroy(gameObject);
         }
         
