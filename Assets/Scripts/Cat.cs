@@ -17,6 +17,8 @@ public class Cat : PNJ {
     [Tooltip("Sound played when the cat is caressed")]
     AudioClip caressedSound;
 
+    GameObject zombi;
+
     private SpriteRenderer spriteRenderer;
 
     private AudioSource audioSource;
@@ -32,6 +34,7 @@ public class Cat : PNJ {
         listOfAction.Add(Action.Manger);
         index = 0;
         action = listOfAction[index];
+        zombi = GameObject.Find("zombi");
     }
 	
 	// Update is called once per frame
@@ -58,8 +61,22 @@ public class Cat : PNJ {
     }
 
     public override void Interact(Action action) {
-        switch(action)
-        {
+        StartCoroutine(FinishWalking(action));
+    }
+
+
+    IEnumerator FinishWalking(Action action) {
+        yield return new WaitForSeconds(0.5f);
+        bool doneWalking = false;
+        while (!doneWalking) {
+            yield return new WaitForSeconds(0.1f);
+            if (!zombi.GetComponent<Character>().IsWalking) {
+                doneWalking = true;
+
+            }
+
+        }
+        switch (action) {
             case Action.Caresser:
                 audioSource.clip = caressedSound;
                 audioSource.Play();
@@ -71,6 +88,7 @@ public class Cat : PNJ {
             default:
                 break;
         }
+        
     }
 
     public override void Interact(Item item) {
