@@ -35,7 +35,23 @@ public abstract class Clickable : MonoBehaviour {
     protected abstract  void OnMouseDownAction();
 
     public void OnMouseDown() {
-        OnMouseDownAction();
+        if (!GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
+        {
+            OnMouseDownAction();
+        }
+        else
+        {
+            //TODO action avec l'objet
+            int i = 0;
+            for(i=0; i<GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items.Count; i++)
+            {
+                if(!GameObject.Find("ImageItem" + (i + 1)).GetComponent<MenuSelector>().can_select)
+                {
+                    break;
+                }
+            }
+            Debug.Log(i + 1);
+        }
     }
 
     
@@ -50,22 +66,32 @@ public abstract class Clickable : MonoBehaviour {
         
     }
     void OnMouseEnter() {
-
-        updateCursor();
+        if (!GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
+        {
+            updateCursor();
+        }
 
     }
 
     protected abstract void OnMouseRightAction();
 
     void OnMouseOver() {
-        if(Input.GetMouseButtonDown(1)){
+        if(Input.GetMouseButtonDown(1) && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
+        {
             OnMouseRightAction();
+        }
+        else if(Input.GetMouseButtonDown(1) && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
+        {
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().resetCanSelect();
         }
     }
 
 
     void OnMouseExit() {
-        Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+        if (!GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
+        {
+            Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
+        }
     }
 
 }

@@ -11,19 +11,6 @@ public class MenuSelector : MonoBehaviour
     public CursorMode curMod = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
 
-    bool selected = false;
-    public bool Selected
-    {
-        get
-        {
-            return selected;
-        }
-        set
-        {
-            selected = Selected;
-        }
-    }
-
     public bool can_select = false;
 
     // Use this for initialization
@@ -38,6 +25,7 @@ public class MenuSelector : MonoBehaviour
         GetComponent<BoxCollider2D>().size = new Vector2(this.GetComponentInParent<RectTransform>().rect.width, this.GetComponentInParent<RectTransform>().rect.height);
         GetComponent<BoxCollider2D>().offset = new Vector2( - this.GetComponentInParent<RectTransform>().rect.width / 2,
                                                                    + this.GetComponentInParent<RectTransform>().rect.height / 2);
+        GetComponent<BoxCollider2D>().transform.position = GetComponentInParent<RectTransform>().transform.position;
     }
 
     public void updateCursor()
@@ -54,7 +42,7 @@ public class MenuSelector : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!selected && can_select)
+        if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
             updateCursor();
         }
@@ -62,19 +50,17 @@ public class MenuSelector : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (!selected && can_select)
+        if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
             Cursor.SetCursor(cursorMouse, hotspot, curMod);
-        }
-        else
-        {
-            //TODO déclencher l'action ou non, supprimer l'item du menu etc
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting = true;
+            can_select = false;
         }
     }
 
     void OnMouseExit()
     {
-        if (!selected && can_select)
+        if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
             Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
         }
