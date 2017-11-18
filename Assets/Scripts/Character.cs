@@ -123,7 +123,6 @@ public class Character : Interactible {
             if (!isTargetOverWhenClicking)
             {
                 if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y) {
-                    print("loin");
                     UpdateTarget();
                     FaceClickedPoint();
                     audioSource.clip = walkSound;
