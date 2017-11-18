@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public enum Item {
     Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
 };
@@ -45,6 +43,7 @@ public class GameManager : MonoBehaviour {
     int currentLevel;
 
     List<Item> items;
+    public List<Item> items_taken;
 
     [SerializeField]
     int maxMoral;
@@ -169,6 +168,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void addItem (Item item) {
+        items_taken.Add(item);
         items.Add(item);
         GameObject.Find("ImageItem" + (items.Count)).GetComponent<Image>().sprite = GetComponent<GameManager>().getSprite(GetComponent<GameManager>().Items[items.Count -1]);
         GameObject.Find("ImageItem" + (items.Count)).GetComponent<MenuSelector>().cursorMouse = GetComponent<GameManager>().getTexture(item);

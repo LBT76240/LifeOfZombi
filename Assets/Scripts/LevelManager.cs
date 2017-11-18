@@ -28,6 +28,18 @@ public class LevelManager : Clickable {
     void Start ()
     {
         zombi = GameObject.Find("zombi");
+        GameObject[] itemsScene = GameObject.FindGameObjectsWithTag("object");
+        for(int i=0; i<itemsScene.Length;i++)
+        {
+            for(int j=0;j< GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().items_taken.Count;j++)
+            {
+                if(itemsScene[i].GetComponent<Collectible>().item == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().items_taken[j])
+                {
+                    Destroy(itemsScene[i]);
+                    break;
+                }
+            }
+        }
     }
 	
 	// Update is called once per frame
