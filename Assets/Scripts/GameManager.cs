@@ -199,6 +199,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
         items = new List<Item>();
 
     }
