@@ -40,9 +40,9 @@ public abstract class Clickable : MonoBehaviour {
     }
 
     void OnMouseEnter() {
-        if (gameObject.tag == "Collectible") {
-            updateCursor();
-        }
+        
+        updateCursor();
+        
     }
 
     public void updateCursor() {

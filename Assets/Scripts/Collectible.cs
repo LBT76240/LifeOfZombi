@@ -39,8 +39,8 @@ public class Collectible : Interactible {
     protected void OnMouseDownAction() {
         print("Onclick");
         
-        for (int i = 0; i < listOfAction.Count; i++) {
-            print(listOfAction[i]);
+        if(action == Action.Prendre) {
+            Destroy(gameObject);
         }
         
         

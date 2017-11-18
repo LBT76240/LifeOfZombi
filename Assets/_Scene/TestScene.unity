@@ -108,51 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &503311991
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 503311993}
-  - component: {fileID: 503311992}
-  m_Layer: 0
-  m_Name: TestHover
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &503311992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 503311991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dfb2af5623b96d418eb71eff071c117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
-  collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
-  mangerCursor: {fileID: 0}
-  curMod: 0
-  hotspot: {x: 0, y: 0}
---- !u!4 &503311993
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 503311991}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1134589434
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +210,7 @@ GameObject:
   - component: {fileID: 1237258539}
   m_Layer: 0
   m_Name: TestSprite
-  m_TagString: Collectible
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,13 +281,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ce4323ce359d4796fca3a6679d0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSprite: {fileID: 0}
-  indiceAction: -1
   defaultCursor: {fileID: 2800000, guid: f14b28cfde648a74e8aa9578686a77d2, type: 3}
   collectibleCursor: {fileID: 2800000, guid: 89e16ed757a6c114f82a346a94207b77, type: 3}
   mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
   curMod: 0
   hotspot: {x: 0, y: 0}
+  action: 0
+  indiceAction: -1
 --- !u!61 &1237258539
 BoxCollider2D:
   m_ObjectHideFlags: 0
