@@ -11,9 +11,10 @@ public class Character : Interactible {
     [Tooltip("Sets the movement speed of the zombie")]
     float speed = 1.5f;
 
-    /// <summary>
-    ///     The character rotates to look at the mouse
-    /// </summary>
+  
+
+    Animator Animator;
+
     void FaceClickedPoint() {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -25,10 +26,7 @@ public class Character : Interactible {
         transform.eulerAngles = new Vector3(transform.rotation.x, direction.x > 0 ? 0 : -180, transform.rotation.z);
     }
 
-    /// <summary>
-    ///     Updates the coordinates of the coordinates toward where the zoombie must walk to on click
-    /// </summary>
-    /// 
+
     void UpdateTarget() {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
@@ -38,6 +36,9 @@ public class Character : Interactible {
     void Start () {
         target = transform.position;
         action = Action.Prendre;
+        Animator = GetComponent<Animator>();
+        Animator.StopPlayback();
+        Animator.enabled = false;
     }
 	
 	// Update is called once per frame
@@ -46,8 +47,15 @@ public class Character : Interactible {
         {
             UpdateTarget();
             FaceClickedPoint();
+ 
+            Animator.enabled = true;
         }
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        if(transform.position==target)
+        {
+            Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
+            
+        }
     }
 
 
