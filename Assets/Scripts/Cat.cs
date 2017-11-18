@@ -86,6 +86,7 @@ public class Cat : PNJ {
                 case Action.Manger:
                     //  Transform to ZOMBIIIIIIIE
                     spriteRenderer.sprite = zombieCat;
+                    GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.PoilDeChat);
                     break;
                 default:
                     break;
