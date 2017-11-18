@@ -49,7 +49,10 @@ public class Character : Interactible {
         }
     }
 
-    
+    public Vector3 getTarget() {
+        return target;
+    }
+
     void FaceClickedPoint() {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);

@@ -66,7 +66,8 @@ public class Cat : PNJ {
 
 
     IEnumerator FinishWalking(Action action) {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 target = zombi.GetComponent<Character>().getTarget();
         bool doneWalking = false;
         while (!doneWalking) {
             yield return new WaitForSeconds(0.1f);
@@ -76,17 +77,19 @@ public class Cat : PNJ {
             }
 
         }
-        switch (action) {
-            case Action.Caresser:
-                audioSource.clip = caressedSound;
-                audioSource.Play();
-                break;
-            case Action.Manger:
-                //  Transform to ZOMBIIIIIIIE
-                spriteRenderer.sprite = zombieCat;
-                break;
-            default:
-                break;
+        if (Mathf.Abs(target.x - zombi.transform.position.x) < 0.2) {
+            switch (action) {
+                case Action.Caresser:
+                    audioSource.clip = caressedSound;
+                    audioSource.Play();
+                    break;
+                case Action.Manger:
+                    //  Transform to ZOMBIIIIIIIE
+                    spriteRenderer.sprite = zombieCat;
+                    break;
+                default:
+                    break;
+            }
         }
         
     }

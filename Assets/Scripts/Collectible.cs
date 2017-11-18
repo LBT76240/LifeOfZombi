@@ -36,17 +36,16 @@ public class Collectible : Interactible {
 
 
     override
-    protected void OnMouseDownAction() {
-        print("Onclick");
+    protected void OnMouseDownAction() { 
         StartCoroutine(FinishWalking());
-        
-        
-        
 
     }
 
     IEnumerator FinishWalking() {
-        yield return new WaitForSeconds(0.5f);
+        
+        
+        yield return new WaitForSeconds(0.1f);
+        Vector3 target = zombi.GetComponent<Character>().getTarget();
         bool doneWalking = false;
         while (!doneWalking) {
             yield return new WaitForSeconds(0.1f);
@@ -54,16 +53,19 @@ public class Collectible : Interactible {
                 doneWalking = true;
 
             }
-
+            
         }
-        if (action == Action.Prendre) {
-            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(item);
-            Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+        
+        if (Mathf.Abs(target.x - zombi.transform.position.x) < 0.2) {
+            if (action == Action.Prendre) {
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(item);
+                Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
 
-            hotspot.x = textureCursor.height / 2;
-            hotspot.y = textureCursor.width / 2;
-            Cursor.SetCursor(textureCursor, hotspot, curMod);
-            Destroy(gameObject);
+                hotspot.x = textureCursor.height / 2;
+                hotspot.y = textureCursor.width / 2;
+                Cursor.SetCursor(textureCursor, hotspot, curMod);
+                Destroy(gameObject);
+            }
         }
 
 
