@@ -57,6 +57,32 @@ public class GameManager : MonoBehaviour {
     public Texture2D texturePoilDeChat;
     public Texture2D textureOsDeGrandMere;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    [Tooltip("Music played in the graveyard")]
+    AudioClip graveYardSound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city")]
+    AudioClip citySound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city when humain again")]
+    AudioClip cityHumainSound;
+
+    public void playMusicGraveYard() {
+        audioSource.clip = graveYardSound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void playMusicCity() {
+        audioSource.clip = citySound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
     public Texture2D getTexture(Action action) {
         switch (action) {
             case Action.Prendre:
@@ -203,7 +229,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        audioSource = GetComponent<AudioSource>();
         items = new List<Item>();
 
     }

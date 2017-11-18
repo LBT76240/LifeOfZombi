@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 721277003}
   - component: {fileID: 721277002}
+  - component: {fileID: 721277004}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: gamemanager
@@ -296,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcb791a6d3ba114cbd4f2ddb6cef417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curMod: 0
+  hotspot: {x: 0, y: 0}
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
   spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
   spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
@@ -312,6 +315,7 @@ MonoBehaviour:
   maxMoral: 15
   minMoral: -10
   time: 0
+  currently_selecting: 0
   defaultCursor: {fileID: 2800000, guid: 705e401274e00ea4988a8773c12de4b5, type: 3}
   collectibleCursor: {fileID: 2800000, guid: ec03cc10c8f53b44c8b1c706e082a5b0, type: 3}
   mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
@@ -328,6 +332,9 @@ MonoBehaviour:
   texturePoilDeChat: {fileID: 2800000, guid: cb272973f485a4449a4358036f9fe08d, type: 3}
   textureOsDeGrandMere: {fileID: 2800000, guid: 90b6868385e06ef45b55128f6aa3136f,
     type: 3}
+  graveYardSound: {fileID: 8300000, guid: b27eb2f1e74710449a9fad9f91e5a87d, type: 3}
+  citySound: {fileID: 8300000, guid: 9a57392585f8bf44aab02ed90979e847, type: 3}
+  cityHumainSound: {fileID: 8300000, guid: 7d2f87140002bb543ad50c82e76b39f8, type: 3}
 --- !u!4 &721277003
 Transform:
   m_ObjectHideFlags: 0
@@ -341,6 +348,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &721277004
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721277001}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &810585846
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +480,7 @@ GameObject:
   - component: {fileID: 2110714370}
   - component: {fileID: 2110714369}
   - component: {fileID: 2110714373}
+  - component: {fileID: 2110714368}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -400,6 +488,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &2110714368
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110714367}
+  m_Enabled: 1
 --- !u!124 &2110714369
 Behaviour:
   m_ObjectHideFlags: 0

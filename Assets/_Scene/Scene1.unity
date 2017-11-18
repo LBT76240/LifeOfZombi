@@ -314,7 +314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &393594490
 MonoBehaviour:
@@ -801,6 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fcb791a6d3ba114cbd4f2ddb6cef417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curMod: 0
+  hotspot: {x: 0, y: 0}
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
   spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
   spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
@@ -817,6 +819,7 @@ MonoBehaviour:
   maxMoral: 15
   minMoral: -10
   time: 0
+  currently_selecting: 0
   defaultCursor: {fileID: 2800000, guid: 705e401274e00ea4988a8773c12de4b5, type: 3}
   collectibleCursor: {fileID: 2800000, guid: ec03cc10c8f53b44c8b1c706e082a5b0, type: 3}
   mangerCursor: {fileID: 2800000, guid: 19e3c0d6cc93a4e4d8538e87419f0bcb, type: 3}
@@ -833,6 +836,9 @@ MonoBehaviour:
   texturePoilDeChat: {fileID: 2800000, guid: cb272973f485a4449a4358036f9fe08d, type: 3}
   textureOsDeGrandMere: {fileID: 2800000, guid: 90b6868385e06ef45b55128f6aa3136f,
     type: 3}
+  graveYardSound: {fileID: 0}
+  citySound: {fileID: 0}
+  cityHumainSound: {fileID: 0}
 --- !u!4 &496493014
 Transform:
   m_ObjectHideFlags: 0
@@ -844,7 +850,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &496493015
 MonoBehaviour:
@@ -857,42 +863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9cd28319395945458caea5f8a5eecf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1060608148
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1060608150}
-  - component: {fileID: 1060608149}
-  m_Layer: 0
-  m_Name: AudioListener
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1060608149
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060608148}
-  m_Enabled: 1
---- !u!4 &1060608150
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060608148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2047703, y: 1.399086, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237258535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1146,7 @@ Prefab:
     - target: {fileID: 224779168484302570, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224779168484302570, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
