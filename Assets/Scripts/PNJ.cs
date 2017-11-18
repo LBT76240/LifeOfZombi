@@ -9,7 +9,7 @@ public abstract class PNJ : Interactible {
     /// </summary>
     [SerializeField]
     [Tooltip("PNJ's name")]
-    string name;
+    string namePNJ;
 
     /// <summary>
     ///     

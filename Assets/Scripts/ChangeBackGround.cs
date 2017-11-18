@@ -9,7 +9,6 @@ public class ChangeBackGround : MonoBehaviour {
     public Sprite spriteCimetiere;
 
     public void ChangeBack(int level) {
-        print("bite" + level);
         switch(level) {
             case 1:
                 gameObject.GetComponent<Image>().sprite = spriteCimetiere;
