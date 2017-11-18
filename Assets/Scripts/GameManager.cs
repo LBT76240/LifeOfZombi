@@ -22,6 +22,23 @@ public class GameManager : MonoBehaviour {
 
     List<bool> actions;
 
+    public Texture2D defaultCursor;
+    public Texture2D collectibleCursor;
+    public Texture2D mangerCursor;
+
+    public Texture2D getTexture(Action action) {
+        switch (action) {
+            case Action.Prendre:
+                return collectibleCursor;
+            case Action.Manger:
+                return mangerCursor;
+            default:
+                return defaultCursor;
+        }
+        
+            
+    }
+
 
     public int CurrentLevel
     {

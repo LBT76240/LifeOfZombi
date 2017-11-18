@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Action {
-    Prendre, Manger
+    Prendre, Manger,Default
 };
 
 public abstract class Clickable : MonoBehaviour {
-    
 
-    //A mettre dans le GameManager
-    public Texture2D defaultCursor;
-    public Texture2D collectibleCursor;
-    public Texture2D mangerCursor;
+
+    
 
     public CursorMode curMod = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
@@ -22,7 +19,9 @@ public abstract class Clickable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Cursor.SetCursor(defaultCursor, hotspot, curMod);
+        
+
+        Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
         
     }
 	
@@ -39,18 +38,21 @@ public abstract class Clickable : MonoBehaviour {
         OnMouseDownAction();
     }
 
-    void OnMouseEnter() {
-        
-        updateCursor();
-        
-    }
+    
 
     public void updateCursor() {
-        if (action == Action.Prendre) {
-            Cursor.SetCursor(collectibleCursor, hotspot, curMod);
-        } else if (action == Action.Manger) {
-            Cursor.SetCursor(mangerCursor, hotspot, curMod);
+        
+        Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(action);
+        if (test == null) {
+            print("null text");
         }
+        Cursor.SetCursor(test, hotspot, curMod);
+        
+    }
+    void OnMouseEnter() {
+
+        updateCursor();
+
     }
 
     protected abstract void OnMouseRightAction();
@@ -63,7 +65,7 @@ public abstract class Clickable : MonoBehaviour {
 
 
     void OnMouseExit() {
-        Cursor.SetCursor(defaultCursor, hotspot, curMod);
+        Cursor.SetCursor(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default), hotspot, curMod);
     }
 
 }
