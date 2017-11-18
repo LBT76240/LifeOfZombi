@@ -11,6 +11,24 @@ public enum Item {
 
 public class GameManager : MonoBehaviour {
 
+    public int lastScene = 0;
+    public int currentScene;
+    public ChangeBackGround changeBackGround;
+
+    public int getLastScene() {
+        return lastScene;
+    }
+
+    public int getCurrentScene() {
+        return currentScene;
+    }
+
+    public void changeCurrentScene(int value) {
+        lastScene = currentScene;
+        currentScene = value;
+        //changeBackGround.ChangeBack(value);
+    }
+
     public CursorMode curMod = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
     public Sprite spriteDefault;
@@ -56,6 +74,32 @@ public class GameManager : MonoBehaviour {
     public Texture2D textureCasquette;
     public Texture2D texturePoilDeChat;
     public Texture2D textureOsDeGrandMere;
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    [Tooltip("Music played in the graveyard")]
+    AudioClip graveYardSound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city")]
+    AudioClip citySound;
+
+    [SerializeField]
+    [Tooltip("Music played in the city when humain again")]
+    AudioClip cityHumainSound;
+
+    public void playMusicGraveYard() {
+        audioSource.clip = graveYardSound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void playMusicCity() {
+        audioSource.clip = citySound;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
 
     public Texture2D getTexture(Action action) {
         switch (action) {
@@ -203,7 +247,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        audioSource = GetComponent<AudioSource>();
         items = new List<Item>();
 
     }
