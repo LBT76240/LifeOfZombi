@@ -19,6 +19,11 @@ public class Seller : PNJ {
 
     private AudioSource audioSource;
 
+
+    public GameObject flowerGood;
+
+    bool alreadyInterract = false;
+
     // Use this for initialization
     void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +36,21 @@ public class Seller : PNJ {
         index = 0;
         action = listOfAction[index];
         zombi = GameObject.Find("zombi");
+
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count; i++) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_zombie) {
+                spriteRenderer.sprite = zombieSeller;
+                alreadyInterract = true;
+            }
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_humain) {
+                Vector3 pos = transform.position;
+                pos.x = 7.0f;
+                transform.position = pos;
+                alreadyInterract = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -83,8 +103,15 @@ public class Seller : PNJ {
                 case Action.Prendre:
                     break;
                 case Action.Manger:
-                    //  Transform to ZOMBIIIIIIIE
-                    spriteRenderer.sprite = zombieSeller;
+                    if (!alreadyInterract) {
+                        //  Transform to ZOMBIIIIIIIE
+                        spriteRenderer.sprite = zombieSeller;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
+
+                        spawnFlower();
+                        alreadyInterract = true;
+                    }
                     break;
                 default:
                     break;
@@ -94,11 +121,22 @@ public class Seller : PNJ {
     }
 
     public override void Interact(Item item) {
+        
         return;
     }
 
     override
     protected void actionObject(Item item) {
+        if (!alreadyInterract) {
+            spawnFlower();
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
+            alreadyInterract = true;
+        }
         return;
+    }
+
+    void spawnFlower() {
+        Instantiate(flowerGood, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }
