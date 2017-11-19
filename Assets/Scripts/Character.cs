@@ -16,6 +16,8 @@ public class Character : Interactible {
     [Tooltip("Sets the movement speed of the zombie")]
     float speed = 1.5f;
 
+    private float initialSpeed;
+
     Animator Animator;
 
     [SerializeField]
@@ -65,8 +67,8 @@ public class Character : Interactible {
     }
 
 
-    void UpdateTarget() {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    void UpdateTarget(Vector3 newTarget) {
+        target = newTarget;
         target.y = transform.position.y;    //  Horizontal movement only
         target.z = transform.position.z;
 
@@ -82,8 +84,9 @@ public class Character : Interactible {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
+        initialSpeed = speed;
         isWalking = false;
 
         target = transform.position;
@@ -93,28 +96,37 @@ public class Character : Interactible {
         Animator.enabled = true;
         audioSource = GetComponent<AudioSource>();
 
-        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 1) {
-            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 0) {
+        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 1)
+        {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 0)
+            {
                 Vector2 pos;
                 pos.x = -2.22f;
                 pos.y = 2.78f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
-            } else {
+            }
+            else
+            {
                 Vector2 pos;
                 pos.x = 7.4f;
                 pos.y = 2.78f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
             }
-        } else if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 2) {
-            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 1) {
+        }
+        else if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 2)
+        {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 1)
+            {
                 Vector2 pos;
                 pos.x = -7.4f;
                 pos.y = -0.3f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
-            } else {
+            }
+            else
+            {
                 Vector2 pos;
                 pos.x = 7.4f;
                 pos.y = -0.3f;
@@ -123,6 +135,32 @@ public class Character : Interactible {
             }
         }
         target = transform.position;
+    }
+
+    void Walk() {
+        if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
+        {
+            UpdateTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            FaceClickedPoint();
+            audioSource.clip = walkSound;
+            audioSource.loop = true;
+            audioSource.Play();
+
+            isWalking = true;
+
+        }
+    }
+
+    /// <summary>
+    ///     Called by grandma so that Zombi walks slowly with her toward the other side of the road
+    /// </summary>
+    public void WalkWithGrandma() {
+        UpdateTarget(new Vector3(7.0f, transform.position.y, transform.position.z));
+        speed = GameObject.Find("mami").GetComponent<Grandma>().speed;
+        audioSource.clip = walkSound;
+        audioSource.loop = true;
+        audioSource.Play();
+        isWalking = true;
     }
 	
 	// Update is called once per frame
@@ -139,16 +177,7 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
-                if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y) {
-                    UpdateTarget();
-                    FaceClickedPoint();
-                    audioSource.clip = walkSound;
-                    audioSource.loop = true;
-                    audioSource.Play();
-
-                    isWalking = true;
-
-                }
+                Walk();
                 //Animator.enabled = true;
             }
         }
@@ -168,7 +197,7 @@ public class Character : Interactible {
             Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
 
             isWalking = false;
-
+            speed = initialSpeed;
         }
     }
 
