@@ -95,6 +95,7 @@ public class Cat : PNJ {
                     if (i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
                     {
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
                     }
                     break;
                 case Action.Manger:
@@ -104,6 +105,7 @@ public class Cat : PNJ {
                     {
                         spriteRenderer.sprite = zombieCat;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
                     }
 
                     break;

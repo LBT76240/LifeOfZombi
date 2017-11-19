@@ -78,11 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ce4323ce359d4796fca3a6679d0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetInteractible: 0
   curMod: 0
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
-  item: 7
+  item: 8
 --- !u!212 &212218089322841890
 SpriteRenderer:
   m_ObjectHideFlags: 1

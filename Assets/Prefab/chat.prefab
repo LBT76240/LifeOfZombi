@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d018223a437564fb08bb2f07bc6752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetInteractible: 0
   curMod: 0
   hotspot: {x: 0, y: 0}
   action: 0

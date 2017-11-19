@@ -78,11 +78,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fc21b3d04bbf545a5a199ad45a70e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetInteractible: 0
   curMod: 0
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
   namePNJ: Sakura
+  state_humain: 4
+  state_zombie: 5
   normalLady: {fileID: 21300000, guid: efa7d1bd9b557df40bb2aabda087cfa2, type: 3}
   ladyInLove: {fileID: 21300000, guid: 212a896b1c888ff4d8c3e32808559e10, type: 3}
   zombieLady: {fileID: 21300000, guid: e052a03e9296c8543a8088e2a78d9f6c, type: 3}

@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874069008081372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.555, y: 0.213, z: 0}
+  m_LocalPosition: {x: 0.29, y: 0.213, z: 0}
   m_LocalScale: {x: 0.43438795, y: 0.43438795, z: 0.43438795}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,13 +78,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be951edbc9ab874b857366143a9c944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetInteractible: 0
   curMod: 0
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
   namePNJ: 
-  normalSeller: {fileID: 0}
-  zombieSeller: {fileID: 0}
+  state_humain: 6
+  state_zombie: 7
+  normalSeller: {fileID: 21300000, guid: f20fda2512925e74e8daba8482eab9b1, type: 3}
+  zombieSeller: {fileID: 21300000, guid: 39743e2d1d810df408612ac5504a5cd2, type: 3}
 --- !u!212 &212798434464840262
 SpriteRenderer:
   m_ObjectHideFlags: 1

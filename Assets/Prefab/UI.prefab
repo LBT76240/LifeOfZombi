@@ -112,9 +112,10 @@ GameObject:
   - component: {fileID: 224649834497076158}
   - component: {fileID: 222188798322228878}
   - component: {fileID: 114861922635151570}
+  - component: {fileID: 114985805651434820}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 114065073289312324}
+  sprite_default: {fileID: 0}
 --- !u!114 &114910972821632522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1923,6 +1925,19 @@ MonoBehaviour:
   curMod: 0
   hotspot: {x: 0, y: 0}
   can_select: 0
+--- !u!114 &114985805651434820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128523562754008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a91826bd4a26c49b2c16ed8f4e3520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRue: {fileID: 21300000, guid: bb8d2ee4b6c39a5488abe23aff95166c, type: 3}
+  spriteCimetiere: {fileID: 21300000, guid: e63f4960a7743274c9b54be8f0ef2a80, type: 3}
 --- !u!222 &222058700160936196
 CanvasRenderer:
   m_ObjectHideFlags: 1

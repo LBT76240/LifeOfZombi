@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Item {
-    Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
+    None,Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
 };
 
 public enum PNJ_State
@@ -53,12 +53,12 @@ public class GameManager : MonoBehaviour {
     public List<PNJ_State> state_pnj;
 
     [SerializeField]
-    int maxMoral;
+    float maxMoral;
 
     [SerializeField]
-    int minMoral;
+    float minMoral;
 
-    int moral;
+    float moral;
 
     [SerializeField]
     int time;
@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour {
 
     public Sprite getSprite(Item item) {
         switch (item) {
+            case Item.None:
+                return spriteDefault;
             case Item.Chat:
                 return spriteChat;
             case Item.Ballon:
@@ -153,6 +155,8 @@ public class GameManager : MonoBehaviour {
     {
         switch (item)
         {
+            case Item.None:
+                return defaultCursor;
             case Item.Chat:
                 return textureChat;
             case Item.Piece:
@@ -206,7 +210,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int MaxMoral
+    public float MaxMoral
     {
         get
         {
@@ -214,7 +218,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int MinMoral
+    public float MinMoral
     {
         get
         {
@@ -222,7 +226,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int Moral
+    public float Moral
     {
         get
         {
