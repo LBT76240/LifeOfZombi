@@ -25,6 +25,9 @@ public class Character : Interactible {
     public RuntimeAnimatorController anim2;
 
     [SerializeField]
+    public RuntimeAnimatorController animMarcheHumain;
+
+    [SerializeField]
     [Tooltip("Sound played when clicking on the zombie")]
     AudioClip rhhhSound;
 
@@ -61,9 +64,17 @@ public class Character : Interactible {
         }
     }
 
-  
+    private bool isDoneWalking;
 
-    
+    public bool IsDoneWalking 
+    {
+        get {
+            return this.isDoneWalking;
+        }
+    }
+
+
+
     public Vector3 getTarget() {
         return target;
     }
@@ -99,7 +110,7 @@ public class Character : Interactible {
     // Use this for initialization
     void Start() {
 
-
+        isDoneWalking = true;
         initialSpeed = speed;
         isWalking = false;
    
@@ -124,7 +135,7 @@ public class Character : Interactible {
             else
             {
                 Vector2 pos;
-                pos.x = 7.4f;
+                pos.x = 7f;
                 pos.y = 2.78f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
@@ -135,7 +146,7 @@ public class Character : Interactible {
             if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 1)
             {
                 Vector2 pos;
-                pos.x = -7.4f;
+                pos.x = -7f;
                 pos.y = -0.3f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
@@ -143,8 +154,22 @@ public class Character : Interactible {
             else
             {
                 Vector2 pos;
-                pos.x = 7.4f;
+                pos.x = 7f;
                 pos.y = -0.3f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            }
+        } else if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 3) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 2) {
+                Vector2 pos;
+                pos.x = -7f;
+                pos.y = -1f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            } else {
+                Vector2 pos;
+                pos.x = 7f;
+                pos.y = -1f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
             }
@@ -155,12 +180,13 @@ public class Character : Interactible {
         if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
         {
             UpdateTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            isDoneWalking = false;
             FaceClickedPoint();
             audioSource.clip = walkSound;
             audioSource.loop = true;
             audioSource.Play();
 
-            isWalking = true;
+            StartCoroutine(Wait(0.9f));
 
         }
     }
@@ -196,9 +222,9 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
+                Animator.enabled = true;
 
                 Walk();
-                //Animator.enabled = true;
 
             }
         }
@@ -217,7 +243,7 @@ public class Character : Interactible {
             isWalking = false;
             walkWithMamy = false;
             justStopped = true;
-
+            isDoneWalking = true;
 
             speed = initialSpeed;
 
@@ -245,6 +271,13 @@ public class Character : Interactible {
    
     IEnumerator Wait(float waitTime)
     {
+        if(armsup) {
+            waitTime = 0f;
+        }
+        if(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral>1) {
+            waitTime = 0f;
+
+        }
         yield return new WaitForSeconds(waitTime);
         StartWalking();
 
@@ -255,6 +288,10 @@ public class Character : Interactible {
     {
         isWalking = true;
         Animator.runtimeAnimatorController = anim1 as RuntimeAnimatorController;
+        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral > 1) {
+            Animator.runtimeAnimatorController = animMarcheHumain as RuntimeAnimatorController;
+
+        }
         armsup = true;
         
     }

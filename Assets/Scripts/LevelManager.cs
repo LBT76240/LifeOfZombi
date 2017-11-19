@@ -61,18 +61,19 @@ public class LevelManager : Clickable {
     {
         yield return new WaitForSeconds(0.1f);
         Vector3 target = zombi.GetComponent<Character>().getTarget();
+        
         bool doneWalking = false;
         while(!doneWalking)
         {
             yield return new WaitForSeconds(0.1f);
-            if (!zombi.GetComponent<Character>().IsWalking)
+            if (zombi.GetComponent<Character>().IsDoneWalking)
             {
                 doneWalking = true;              
             }
             
         }
-
-        if(Mathf.Abs(target.x - zombi.transform.position.x) <= 0.2)
+        
+        if (Mathf.Abs(target.x - zombi.transform.position.x) <= 0.2)
         {
             ChangeScene();
         }

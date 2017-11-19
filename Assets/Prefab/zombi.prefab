@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4105520023139488}
   - component: {fileID: 212449320352746680}
-  - component: {fileID: 114450769458905944}
-  - component: {fileID: 95927902792842134}
   - component: {fileID: 61955308057096498}
   - component: {fileID: 82947571501476922}
-  - component: {fileID: 114797465459210468}
+  - component: {fileID: 114450769458905944}
+  - component: {fileID: 95927902792842134}
+  - component: {fileID: 114434915682085576}
   m_Layer: 0
   m_Name: zombi
   m_TagString: Untagged
@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256439907205552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.05, y: -0.36, z: 0}
-  m_LocalScale: {x: 0.19092715, y: 0.17380084, z: 1}
+  m_LocalPosition: {x: -4.07, y: -0.37, z: 0}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +57,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.84, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -68,7 +68,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.65, y: 20.69}
+  m_Size: {x: 15, y: 20.69}
   m_EdgeRadius: 0
 --- !u!82 &82947571501476922
 AudioSource:
@@ -80,7 +80,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -137,7 +137,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -159,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 1256439907205552}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6ce2842981761349bfd8098eea12c77, type: 2}
+  m_Controller: {fileID: 9100000, guid: 41fe1d30764ec014b9a6cc88424f4509, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -167,6 +167,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114434915682085576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256439907205552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e904f1434a9645d448d4ba7d7d2b5558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poundingHeart: {fileID: 1059559012519412, guid: 0f5907ec0778cfe4e815f5dce70633e7,
+    type: 2}
 --- !u!114 &114450769458905944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,25 +196,16 @@ MonoBehaviour:
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
-  maxX: 7.4
-  minX: -4.4
+  maxX: 8
+  minX: -8
   minY: -3
-  speed: 2.5
+  speed: 1.5
+  anim1: {fileID: 9100000, guid: 90342d40c6c7da947b63d7bd1a91cf0b, type: 2}
+  anim2: {fileID: 9100000, guid: e75a10d251d1581449ef04f9b3120723, type: 2}
+  animMarcheHumain: {fileID: 9100000, guid: d6ce2842981761349bfd8098eea12c77, type: 2}
   rhhhSound: {fileID: 8300000, guid: aaf4ea0e877cca9419ffb743491ef262, type: 3}
   walkSound: {fileID: 8300000, guid: 89ae74a7b0fe58344abdb73b081fe600, type: 3}
---- !u!114 &114797465459210468
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256439907205552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e904f1434a9645d448d4ba7d7d2b5558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poundingHeart: {fileID: 1059559012519412, guid: 0f5907ec0778cfe4e815f5dce70633e7,
-    type: 2}
+  justStopped: 0
 --- !u!212 &212449320352746680
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -233,8 +237,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 99d94f29c41154f40b95da2ab2c58dc3, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: c67fdc266a25d9f43a50eee32a0df7e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
