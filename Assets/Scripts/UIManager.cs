@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
     Slider slider;
     GameObject gameManager;
     public Sprite sprite_default;
+    public Texture2D texture_default;
 	// Use this for initialization
 	void Start () {
        gameManager = GameObject.FindGameObjectWithTag("gamemanager");

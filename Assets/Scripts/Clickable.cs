@@ -83,8 +83,16 @@ public abstract class Clickable : MonoBehaviour {
         if (Mathf.Abs(transform.position.x - GameObject.Find("zombi").transform.position.x) < 0.2)
         {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items.RemoveAt(i);
-            GameObject.Find("ImageItem" + (i + 1)).GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("uimanager").GetComponent<UIManager>().sprite_default;
-            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting = false;
+            for (i=i+1; i< GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items.Count+1;i++)
+            {
+                GameObject.Find("ImageItem" + (i)).GetComponent<Image>().sprite = GameObject.Find("ImageItem" + (i+1)).GetComponent<Image>().sprite;
+                GameObject.Find("ImageItem" + (i)).GetComponent<MenuSelector>().cursorMouse = GameObject.Find("ImageItem" + (i + 1)).GetComponent<MenuSelector>().cursorMouse;
+            }
+            GameObject.Find("ImageItem" + (i)).GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("uimanager").GetComponent<UIManager>().sprite_default;
+            GameObject.Find("ImageItem" + (i)).GetComponent<MenuSelector>().cursorMouse = GameObject.FindGameObjectWithTag("uimanager").GetComponent<UIManager>().texture_default;
+            GameObject.Find("ImageItem" + (i)).GetComponent<MenuSelector>().can_select = false;
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().resetCanSelect();
+
             updateCursor();
             //Inclure ici l'appel à la fonction virtuelle
         }

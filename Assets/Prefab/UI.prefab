@@ -1861,6 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 114065073289312324}
   sprite_default: {fileID: 0}
+  texture_default: {fileID: 0}
 --- !u!114 &114910972821632522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2321,7 +2322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.05}
   m_AnchorMax: {x: 0.95, y: 0.95}
-  m_AnchoredPosition: {x: -1.3099995, y: -0.011295}
+  m_AnchoredPosition: {x: -1.3099976, y: -0.011295}
   m_SizeDelta: {x: -0.02, y: -0.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224290921622781236
@@ -2743,7 +2744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.89, y: 0.05}
   m_AnchorMax: {x: 0.99, y: 0.5}
-  m_AnchoredPosition: {x: 0.5, y: 1.0874023}
+  m_AnchoredPosition: {x: 0.5000458, y: 1.0874023}
   m_SizeDelta: {x: 0, y: 0.025063}
   m_Pivot: {x: 0.89, y: 0.5}
 --- !u!224 &224934112431266590
