@@ -106,6 +106,7 @@ public class Cat : PNJ {
                         spriteRenderer.sprite = zombieCat;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.PoilDeChat);
                     }
 
                     break;

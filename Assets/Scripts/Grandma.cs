@@ -29,6 +29,8 @@ public class Grandma : PNJ {
 
     Animator Animator;
 
+    bool alreadyInterract = false;
+
     // Use this for initialization
     void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -44,6 +46,21 @@ public class Grandma : PNJ {
 
         Animator = GetComponent<Animator>();
         Animator.enabled = false;
+
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count; i++) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_zombie) {
+                spriteRenderer.sprite = zombieGrandma;
+                alreadyInterract = true;
+            }
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_humain) {
+                Vector3 pos = transform.position;
+                pos.x = 7.0f;
+                transform.position = pos;
+                alreadyInterract = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -83,8 +100,12 @@ public class Grandma : PNJ {
             Animator.enabled = true;
             yield return null;
         }
-        if (Mathf.Abs(7.0f - transform.position.x) < 0.1)
+        if (Mathf.Abs(7.0f - transform.position.x) < 0.1) {
             Animator.enabled = false;
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.Piece);
+        }
     }
 
 
@@ -104,19 +125,26 @@ public class Grandma : PNJ {
         }
         if (Mathf.Abs(target.x - zombi.transform.position.x) < 0.2)
         {
-            switch (action)
-            {
+            switch (action) {
                 case Action.Help:
-                    //  Grandma crosses the road thanks to the wonderful help of Zombi, who is such an amazing character making great efforts to become human
-                    StartCoroutine("WalkTowardRightSide");
+                    if (!alreadyInterract) { 
+                        //  Grandma crosses the road thanks to the wonderful help of Zombi, who is such an amazing character making great efforts to become human
+                        StartCoroutine(WalkTowardRightSide());
 
-                    //  Make Zombi forward with the grandma
-                    zombi.GetComponent<Character>().WalkWithGrandma();
+                        //  Make Zombi forward with the grandma
+                        zombi.GetComponent<Character>().WalkWithGrandma();
+                        alreadyInterract = true;
+                    }
                     break;
                 case Action.DontHelp:
-                    //  Transform to ZOMBIIIIIIIE
-                    spriteRenderer.sprite = zombieGrandma;
-                    GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.OsDeGrandMere);
+                    if (!alreadyInterract) {
+                        //  Transform to ZOMBIIIIIIIE
+                        spriteRenderer.sprite = zombieGrandma;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.OsDeGrandMere);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
+                        alreadyInterract = true;
+                    }
                     break;
                 default:
                     break;
