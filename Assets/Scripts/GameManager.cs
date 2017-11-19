@@ -183,6 +183,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void addItemTaken(Item item) {
+        items_taken.Add(item);
+    }
+
     public void addItem (Item item) {
         items_taken.Add(item);
         items.Add(item);

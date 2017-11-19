@@ -65,7 +65,17 @@ public class Collectible : Interactible {
                 hotspot.y = textureCursor.width / 2;
                 Cursor.SetCursor(textureCursor, hotspot, curMod);
                 Destroy(gameObject);
+            } else
+            if (action == Action.Manger) {
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItemTaken(item);
+                Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
+
+                hotspot.x = textureCursor.height / 2;
+                hotspot.y = textureCursor.width / 2;
+                Cursor.SetCursor(textureCursor, hotspot, curMod);
+                Destroy(gameObject);
             }
+
         }
 
 
