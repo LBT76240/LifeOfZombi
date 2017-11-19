@@ -35,3 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scene/End.unity
     guid: ef78012884fed3141bff8df80b9e2d47
+  - enabled: 1
+    path: Assets/_Scene/nothingEnding.unity
+    guid: da90ffb64711cf14ba010d3aeddf7900
+  - enabled: 1
+    path: Assets/_Scene/zombieEnding.unity
+    guid: aff03a7c7f1e3b94dbfab46b6973bab7
+  - enabled: 1
+    path: Assets/_Scene/humanEnding.unity
+    guid: aec40ab72b072cd4ca49252ee324c1fe
+  - enabled: 1
+    path: Assets/_Scene/mixedEnding.unity
+    guid: 5b44134ed065549428d89915842ad0ea

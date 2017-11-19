@@ -45,9 +45,7 @@ public class Seller : PNJ {
             }
             if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
                 state_humain) {
-                Vector3 pos = transform.position;
-                pos.x = 7.0f;
-                transform.position = pos;
+                
                 alreadyInterract = true;
             }
         }
