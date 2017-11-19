@@ -223,8 +223,14 @@ Prefab:
     - target: {fileID: 224932885547916800, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.50006104
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114985805651434820, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: spriteMairie
+      value: 
+      objectReference: {fileID: 21300000, guid: 101f74b54cd112a4fbf00ea98679e98b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_IsPrefabParent: 0
