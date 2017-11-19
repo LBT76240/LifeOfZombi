@@ -173,6 +173,14 @@ public class Character : Interactible {
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
             }
+        } else if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 4) {
+            
+             Vector2 pos;
+             pos.x = -7f;
+             pos.y = -1f;
+             gameObject.transform.position = pos;
+             FaceClickedPoint();
+           
         }
         target = transform.position;
     }

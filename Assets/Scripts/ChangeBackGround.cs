@@ -8,6 +8,7 @@ public class ChangeBackGround : MonoBehaviour {
     public Sprite spriteRue;
     public Sprite spriteCimetiere;
     public Sprite spriteMairie;
+    public Sprite spriteMagazin;
 
     public void ChangeBack(int level) {
         switch(level) {
@@ -19,6 +20,9 @@ public class ChangeBackGround : MonoBehaviour {
                 break;
             case 3:
                 gameObject.GetComponent<Image>().sprite = spriteMairie;
+                break;
+            case 4:
+                gameObject.GetComponent<Image>().sprite = spriteMagazin;
                 break;
             default:
                 break;

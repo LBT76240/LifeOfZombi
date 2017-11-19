@@ -228,7 +228,7 @@ Prefab:
     - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224941067503289670, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
@@ -308,6 +308,12 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 143.29
       objectReference: {fileID: 0}
+    - target: {fileID: 114985805651434820, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: spriteMagazin
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fa5c209bd9e17749aca50ddadc28425,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 640d22598a74af64e89376b4f4d1c35c, type: 2}
   m_IsPrefabParent: 0
