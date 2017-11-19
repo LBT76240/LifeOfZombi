@@ -96,6 +96,7 @@ public class Cat : PNJ {
                     audioSource.Play();
                     if (i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
                     {
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
                     }
@@ -105,6 +106,7 @@ public class Cat : PNJ {
                     i = isAlreadyStated();
                     if(i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
                     {
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                         spriteRenderer.sprite = zombieCat;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;

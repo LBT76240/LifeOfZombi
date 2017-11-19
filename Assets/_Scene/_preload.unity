@@ -367,8 +367,10 @@ MonoBehaviour:
   state_pnj: 
   maxMoral: 10
   minMoral: -10
-  time: 12
-  currentTime: 0
+  tempsAction: 3
+  tempsChangementScene: 1
+  time: 24
+  currentTime: -1
   currently_selecting: 0
   defaultCursor: {fileID: 2800000, guid: 705e401274e00ea4988a8773c12de4b5, type: 3}
   collectibleCursor: {fileID: 2800000, guid: ec03cc10c8f53b44c8b1c706e082a5b0, type: 3}
