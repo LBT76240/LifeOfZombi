@@ -34,6 +34,7 @@ public class LoveLady : PNJ {
     }
 
     protected override void OnMouseDownAction() {
+
         return;
     }
 
@@ -58,11 +59,21 @@ public class LoveLady : PNJ {
         {
             case Item.FleurCimetiere:
                 spriteRenderer.sprite = zombieLady;
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
+                
                 break;
             case Item.FleurFleuriste:
                 spriteRenderer.sprite = ladyInLove;
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
                 break;
         }
         return;
+    }
+
+    override
+    protected void actionObject(Item item) {
+        Interact(item);
     }
 }

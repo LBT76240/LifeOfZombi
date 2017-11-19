@@ -49,7 +49,7 @@ public class Collectible : Interactible {
         bool doneWalking = false;
         while (!doneWalking) {
             yield return new WaitForSeconds(0.1f);
-            if (!zombi.GetComponent<Character>().IsWalking) {
+            if (zombi.GetComponent<Character>().IsDoneWalking) {
                 doneWalking = true;
 
             }
@@ -91,5 +91,10 @@ public class Collectible : Interactible {
         action = listOfAction[index];
 
         updateCursor();
+    }
+
+    override
+    protected void actionObject(Item item) {
+        return;
     }
 }

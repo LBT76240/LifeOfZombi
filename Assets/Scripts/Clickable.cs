@@ -11,6 +11,7 @@ public abstract class Clickable : MonoBehaviour {
 
 
     public Item objetInteractible;
+    public Item objetInteractible2;
 
     public CursorMode curMod = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
@@ -54,7 +55,7 @@ public abstract class Clickable : MonoBehaviour {
                     break;
                 }
             }
-            if(objetInteractible == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i])
+            if(objetInteractible == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i] || objetInteractible2 == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i])
             {
                 Interact2(action,i);
             }
@@ -82,6 +83,8 @@ public abstract class Clickable : MonoBehaviour {
         }
         if (Mathf.Abs(transform.position.x - GameObject.Find("zombi").transform.position.x) < 0.2)
         {
+            Item item = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i];
+
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items.RemoveAt(i);
             for (i=i+1; i< GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items.Count+1;i++)
             {
@@ -95,9 +98,13 @@ public abstract class Clickable : MonoBehaviour {
 
             updateCursor();
             //Inclure ici l'appel à la fonction virtuelle
+            actionObject(item);
         }
 
     }
+
+    protected abstract void actionObject(Item item);
+
     public void updateCursor() {
         
         Texture2D textureCursor = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(action);

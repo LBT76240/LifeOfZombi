@@ -93,4 +93,9 @@ public class LevelManager : Clickable {
     {
         return;
     }
+
+    override
+    protected void actionObject(Item item) {
+        return;
+    }
 }

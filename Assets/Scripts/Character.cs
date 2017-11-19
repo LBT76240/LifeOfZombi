@@ -316,4 +316,9 @@ public class Character : Interactible {
     protected override void OnMouseRightAction() {
         return;
     }
+
+    override
+    protected void actionObject(Item item) {
+        return;
+    }
 }

@@ -157,4 +157,9 @@ public class Grandma : PNJ {
     public override void Interact(Item item) {
         return;
     }
+
+    override
+    protected void actionObject(Item item) {
+        return;
+    }
 }
