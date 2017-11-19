@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23892578301860192}
   - component: {fileID: 328388866506717602}
   - component: {fileID: 82747885492850700}
+  - component: {fileID: 114814144206914620}
   m_Layer: 0
   m_Name: Whoa
   m_TagString: Untagged
@@ -177,6 +178,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114814144206914620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934752556180678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3906cbb60585944cb4573c9aa11bc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 328388866506717602}
 --- !u!328 &328388866506717602
 VideoPlayer:
   m_ObjectHideFlags: 1
