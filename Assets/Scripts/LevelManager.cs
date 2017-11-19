@@ -86,7 +86,12 @@ public class LevelManager : Clickable {
         } else if(NextLevel == 2 && GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene()==1) {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().playMusicCity();
         }
-        SceneManager.LoadScene("Scene" + nextLevel);
+        if(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Time) {
+            SceneManager.LoadScene("End");
+        } else {
+            SceneManager.LoadScene("Scene" + nextLevel);
+        }
+        
 
     }
     protected override void OnMouseRightAction()
