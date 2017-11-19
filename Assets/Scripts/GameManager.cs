@@ -27,11 +27,20 @@ public class GameManager : MonoBehaviour {
         return currentScene;
     }
 
+    public void checkTime() {
+        print(currentTime);
+        print(time);
+        if (currentTime>=time) {
+            SceneManager.LoadScene("End");
+        }
+    }
+
     public void changeCurrentScene(int value) {
         if(value != currentScene) {
             lastScene = currentScene;
             currentScene = value;
             currentTime += tempsChangementScene;
+            checkTime();
         }
         
     }

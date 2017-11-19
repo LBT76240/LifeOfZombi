@@ -55,8 +55,10 @@ public abstract class Clickable : MonoBehaviour {
                     break;
                 }
             }
+            print("MouseDown");
             if(objetInteractible == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i] || objetInteractible2 == GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i])
             {
+                print("Lol");
                 Interact2(action,i);
             }
         }
@@ -69,7 +71,9 @@ public abstract class Clickable : MonoBehaviour {
 
     IEnumerator ObjAction(Action action,int i)
     {
+        print("Lol 1 ");
         yield return new WaitForSeconds(0.1f);
+        Vector3 target = GameObject.Find("zombi").GetComponent<Character>().getTarget();
         bool doneWalking = false;
         while (!doneWalking)
         {
@@ -81,7 +85,8 @@ public abstract class Clickable : MonoBehaviour {
             }
 
         }
-        if (Mathf.Abs(transform.position.x - GameObject.Find("zombi").transform.position.x) < 0.2)
+        print("Lol 2 ");
+        if (Mathf.Abs(target.x - GameObject.Find("zombi").transform.position.x) < 0.2)
         {
             Item item = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Items[i];
 
@@ -98,6 +103,7 @@ public abstract class Clickable : MonoBehaviour {
 
             updateCursor();
             //Inclure ici l'appel à la fonction virtuelle
+            print("Lol 3 ");
             actionObject(item);
         }
 

@@ -104,6 +104,7 @@ public class Grandma : PNJ {
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.Piece);
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
         }
     }
 
@@ -142,6 +143,7 @@ public class Grandma : PNJ {
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.OsDeGrandMere);
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
+                            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
                             alreadyInterract = true;
                         }
                         

@@ -99,6 +99,7 @@ public class Cat : PNJ {
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
                     }
                     break;
                 case Action.Manger:
@@ -111,6 +112,7 @@ public class Cat : PNJ {
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.PoilDeChat);
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
                     }
 
                     break;

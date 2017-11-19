@@ -106,9 +106,10 @@ public class Seller : PNJ {
                     if (!alreadyInterract) {
                         //  Transform to ZOMBIIIIIIIE
                         spriteRenderer.sprite = zombieSeller;
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                         GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
-
+                        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
                         spawnFlower();
                         alreadyInterract = true;
                     }
@@ -129,8 +130,10 @@ public class Seller : PNJ {
     protected void actionObject(Item item) {
         if (!alreadyInterract) {
             spawnFlower();
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
+            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
             alreadyInterract = true;
         }
         return;

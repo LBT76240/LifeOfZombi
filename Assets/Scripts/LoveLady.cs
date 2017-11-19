@@ -17,15 +17,37 @@ public class LoveLady : PNJ {
     [Tooltip("Sprite of the zombie lady")]
     Sprite zombieLady;
 
+    GameObject zombi;
+
     private SpriteRenderer spriteRenderer;
 
     private AudioSource audioSource;
+
+    bool alreadyInterract = false;
 
     // Use this for initialization
     void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = normalLady;
         audioSource = GetComponent<AudioSource>();
+        listOfAction = new List<Action>();
+        listOfAction.Add(Action.Default);
+        
+        zombi = GameObject.Find("zombi");
+        index = 0;
+        action = listOfAction[index];
+        for (int i = 0; i < GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count; i++) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_zombie) {
+                spriteRenderer.sprite = zombieLady;
+                alreadyInterract = true;
+            }
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj[i] ==
+                state_humain) {
+                spriteRenderer.sprite = ladyInLove;
+                alreadyInterract = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -34,11 +56,19 @@ public class LoveLady : PNJ {
     }
 
     protected override void OnMouseDownAction() {
-
+        Interact(action);
         return;
     }
 
     protected override void OnMouseRightAction() {
+        print("Pressed right click.");
+        index++;
+        if (index == listOfAction.Count) {
+            index = 0;
+        }
+        action = listOfAction[index];
+
+        updateCursor();
         return;
     }
 
@@ -55,6 +85,7 @@ public class LoveLady : PNJ {
     }
 
     public override void Interact(Item item) {
+        print("Interract Item");
         switch(item)
         {
             case Item.FleurCimetiere:
@@ -62,13 +93,17 @@ public class LoveLady : PNJ {
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
-                
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
+                alreadyInterract = true;
+
                 break;
             case Item.FleurFleuriste:
                 spriteRenderer.sprite = ladyInLove;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral += 2.5f;
+                GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
+                alreadyInterract = true;
                 break;
         }
         return;
@@ -76,6 +111,9 @@ public class LoveLady : PNJ {
 
     override
     protected void actionObject(Item item) {
-        Interact(item);
+        if(!alreadyInterract) {
+            Interact(item);
+        }
+        
     }
 }
