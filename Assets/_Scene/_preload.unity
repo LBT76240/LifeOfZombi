@@ -276,7 +276,7 @@ Prefab:
     - target: {fileID: 224712540602143344, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -2.1473
+      value: -2.1473007
       objectReference: {fileID: 0}
     - target: {fileID: 224712540602143344, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
@@ -301,12 +301,53 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8d4526498ec01994ebe1f19c7b9ada3f,
+      objectReference: {fileID: 21300000, guid: 31762c677435d074ab2302308947dc7e,
         type: 3}
     - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 143.29
+      value: 199.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114228655914440152, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d97bb922ec268cd49a41286d9ddaf8a4,
+        type: 3}
+    - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000052452087
+      objectReference: {fileID: 0}
+    - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 33.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224861514970232986, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00000095367
+      objectReference: {fileID: 0}
+    - target: {fileID: 224861514970232986, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00000095367
+      objectReference: {fileID: 0}
+    - target: {fileID: 224861514970232986, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -72.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224861514970232986, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 114985805651434820, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
@@ -359,9 +400,9 @@ MonoBehaviour:
   spriteDefault: {fileID: 21300000, guid: 31f2a45f87a7beb4384eb66ec5908437, type: 3}
   spriteChat: {fileID: 21300000, guid: c79b300d3af36c549a6a6b0b5df1372a, type: 3}
   spritePiece: {fileID: 21300000, guid: 82c05f3e105f0894897984149742303c, type: 3}
-  spriteFleurFleuriste: {fileID: 21300000, guid: 305b370832ba4714482801ba138b83e7,
+  spriteFleurFleuriste: {fileID: 21300000, guid: c73b5fe9e04a31b43b2bea61a69c6024,
     type: 3}
-  spriteFleurCimetiere: {fileID: 21300000, guid: 6a4293051d2ccf140a0053ee4a88634f,
+  spriteFleurCimetiere: {fileID: 21300000, guid: d51bb190312389842a6f8998b4617889,
     type: 3}
   spriteBallon: {fileID: 21300000, guid: f14e4cd18a4d73549a066bf363969518, type: 3}
   spriteCasquette: {fileID: 21300000, guid: afe73f1288aef3c45a688f8f234cf810, type: 3}
@@ -385,9 +426,9 @@ MonoBehaviour:
   droiteCursor: {fileID: 2800000, guid: 86e3a6c632f0f39489f0b506e9339baf, type: 3}
   textureChat: {fileID: 2800000, guid: 313694751a0f9f44e9ab21713e7cf61d, type: 3}
   texturePiece: {fileID: 2800000, guid: 65850bf1ef1657c4baca01e834d6b3e2, type: 3}
-  textureFleurFleuriste: {fileID: 2800000, guid: 82b7c78fc6acde84e852744dc8602f76,
+  textureFleurFleuriste: {fileID: 2800000, guid: 9edb08d73fa97f04abaebe579aed8ae3,
     type: 3}
-  textureFleurCimetiere: {fileID: 2800000, guid: e6ccbf2ec09b21b4fa4c84d3dbd64768,
+  textureFleurCimetiere: {fileID: 2800000, guid: d51bb190312389842a6f8998b4617889,
     type: 3}
   textureBallon: {fileID: 2800000, guid: b340f5e51fc6e2446ab1b1ba348a465c, type: 3}
   textureCasquette: {fileID: 2800000, guid: e36961557768f9e4490862db68d4aad6, type: 3}
