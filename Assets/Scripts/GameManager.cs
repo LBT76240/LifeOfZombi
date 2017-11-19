@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Item {
     None,Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
@@ -279,7 +280,10 @@ public class GameManager : MonoBehaviour {
 		if(Input.GetMouseButtonDown(1))
         {
             resetCanSelect();
-            
+        }
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("_Unload");
         }
 	}
 
