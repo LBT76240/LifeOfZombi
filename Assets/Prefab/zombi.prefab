@@ -124,7 +124,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -148,7 +148,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!95 &95927902792842134
 Animator:
   serializedVersion: 3
@@ -188,8 +188,9 @@ MonoBehaviour:
   speed: 1.5
   anim1: {fileID: 9100000, guid: 90342d40c6c7da947b63d7bd1a91cf0b, type: 2}
   anim2: {fileID: 9100000, guid: e75a10d251d1581449ef04f9b3120723, type: 2}
+  animMarcheHumain: {fileID: 9100000, guid: d6ce2842981761349bfd8098eea12c77, type: 2}
   rhhhSound: {fileID: 8300000, guid: aaf4ea0e877cca9419ffb743491ef262, type: 3}
-  walkSound: {fileID: 0}
+  walkSound: {fileID: 8300000, guid: 89ae74a7b0fe58344abdb73b081fe600, type: 3}
   justStopped: 0
 --- !u!212 &212449320352746680
 SpriteRenderer:

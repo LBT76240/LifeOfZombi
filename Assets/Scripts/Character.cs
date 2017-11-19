@@ -25,6 +25,9 @@ public class Character : Interactible {
     public RuntimeAnimatorController anim2;
 
     [SerializeField]
+    public RuntimeAnimatorController animMarcheHumain;
+
+    [SerializeField]
     [Tooltip("Sound played when clicking on the zombie")]
     AudioClip rhhhSound;
 
@@ -271,6 +274,10 @@ public class Character : Interactible {
         if(armsup) {
             waitTime = 0f;
         }
+        if(GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral>1) {
+            waitTime = 0f;
+
+        }
         yield return new WaitForSeconds(waitTime);
         StartWalking();
 
@@ -281,6 +288,10 @@ public class Character : Interactible {
     {
         isWalking = true;
         Animator.runtimeAnimatorController = anim1 as RuntimeAnimatorController;
+        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral > 1) {
+            Animator.runtimeAnimatorController = animMarcheHumain as RuntimeAnimatorController;
+
+        }
         armsup = true;
         
     }
