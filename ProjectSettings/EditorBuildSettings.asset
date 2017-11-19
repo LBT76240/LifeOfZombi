@@ -15,8 +15,14 @@ EditorBuildSettings:
     path: Assets/_Scene/Scene3.unity
     guid: b153308c26cc88f43938f0f37e486992
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/e512d9c71c333094387b8555b0132e5b
+    path: 
     guid: e512d9c71c333094387b8555b0132e5b
   - enabled: 0
-    path: Assets/_Scene/Victor.unity
+    path: 
     guid: 17756308e0736bf429341f28cf1538f3
+  - enabled: 1
+    path: Assets/_Scene/Menu.unity
+    guid: 5cf04b5758725444a9be7856682b9565
+  - enabled: 1
+    path: Assets/_Scene/_preload.unity
+    guid: c10a04578e7e3bb49a524dd2fc6efd09

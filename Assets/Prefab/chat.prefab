@@ -159,11 +159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d018223a437564fb08bb2f07bc6752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objetInteractible: 0
   curMod: 0
   hotspot: {x: 0, y: 0}
   action: 0
   indiceAction: -1
-  name: Pitit Chat
+  namePNJ: 
+  state_humain: 0
+  state_zombie: 1
   normalCat: {fileID: 21300000, guid: becbea373c80a364caed9bb6c1c55696, type: 3}
   zombieCat: {fileID: 21300000, guid: bd6cbd04af3bbd04a982906eda6d37ae, type: 3}
   caressedSound: {fileID: 8300000, guid: e470c9f4d687b114ca14754a1efde4dc, type: 3}

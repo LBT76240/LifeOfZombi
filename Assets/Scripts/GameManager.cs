@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Item {
-    Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
+    None,Chat,Piece,FleurFleuriste,FleurCimetiere,Ballon,Casquette,PoilDeChat,OsDeGrandMere
 };
+
+public enum PNJ_State
+{
+    Chat_Humain, Chat_Zombie, Vieille_Humain, Vieille_Zombie, Femme_Humain, Femme_Zombie, Vendeur_Humain, Vendeur_Zombie
+}
 
 public class GameManager : MonoBehaviour {
 
@@ -45,13 +50,15 @@ public class GameManager : MonoBehaviour {
     List<Item> items;
     public List<Item> items_taken;
 
-    [SerializeField]
-    int maxMoral;
+    public List<PNJ_State> state_pnj;
 
     [SerializeField]
-    int minMoral;
+    float maxMoral;
 
-    int moral;
+    [SerializeField]
+    float minMoral;
+
+    float moral;
 
     [SerializeField]
     int time;
@@ -104,6 +111,10 @@ public class GameManager : MonoBehaviour {
         switch (action) {
             case Action.Prendre:
                 return collectibleCursor;
+            case Action.Help:
+                return collectibleCursor;
+            case Action.DontHelp:
+                return collectibleCursor;
             case Action.Caresser:
                 return collectibleCursor;
             case Action.Manger:
@@ -121,6 +132,8 @@ public class GameManager : MonoBehaviour {
 
     public Sprite getSprite(Item item) {
         switch (item) {
+            case Item.None:
+                return spriteDefault;
             case Item.Chat:
                 return spriteChat;
             case Item.Ballon:
@@ -146,6 +159,8 @@ public class GameManager : MonoBehaviour {
     {
         switch (item)
         {
+            case Item.None:
+                return defaultCursor;
             case Item.Chat:
                 return textureChat;
             case Item.Piece:
@@ -199,7 +214,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int MaxMoral
+    public float MaxMoral
     {
         get
         {
@@ -207,7 +222,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int MinMoral
+    public float MinMoral
     {
         get
         {
@@ -215,7 +230,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int Moral
+    public float Moral
     {
         get
         {

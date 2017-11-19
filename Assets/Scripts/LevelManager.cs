@@ -9,7 +9,7 @@ public class LevelManager : Clickable {
     int nextLevel;
 
     GameObject zombi;
-    Vector3 target;
+   
 
     public int NextLevel
     {
@@ -50,7 +50,7 @@ public class LevelManager : Clickable {
 
     protected override void OnMouseDownAction()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
         Texture2D test = GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getTexture(Action.Default);
         Cursor.SetCursor(test, hotspot, curMod);
             

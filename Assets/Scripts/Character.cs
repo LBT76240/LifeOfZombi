@@ -15,6 +15,8 @@ public class Character : Interactible {
     [Tooltip("Sets the movement speed of the zombie")]
     float speed = 1.5f;
 
+    private float initialSpeed;
+
     Animator Animator;
 
     [SerializeField]
@@ -57,10 +59,44 @@ public class Character : Interactible {
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
 
+    public Vector3 getTarget() {
+        return target;
+    }
+
+    void FaceClickedPoint() {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y
+        );
+        transform.eulerAngles = new Vector3(transform.rotation.x, direction.x > 0 ? 0 : -180, transform.rotation.z);
+    }
+
+
+    void UpdateTarget(Vector3 newTarget) {
+        target = newTarget;
+        target.y = transform.position.y;    //  Horizontal movement only
+        target.z = transform.position.z;
+
+        if(target.x<minX) {
+            target.x = minX;
+        }
+
+        if (target.x > maxX) {
+            target.x = maxX;
+        }
+
+        
+    }
+
+    // Use this for initialization
+    void Start() {
+
+
+        initialSpeed = speed;
         isWalking = false;
    
 
@@ -111,19 +147,41 @@ public class Character : Interactible {
         }
         target = transform.position;
     }
+    void Walk() {
+        if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
+        {
+            UpdateTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            FaceClickedPoint();
+            audioSource.clip = walkSound;
+            audioSource.loop = true;
+            audioSource.Play();
 
-    // Update is called once per frame
-    void Update()
-    {
+            isWalking = true;
 
+        }
+    }
+
+    /// <summary>
+    ///     Called by grandma so that Zombi walks slowly with her toward the other side of the road
+    /// </summary>
+    public void WalkWithGrandma() {
+        UpdateTarget(new Vector3(7.0f, transform.position.y, transform.position.z));
+        speed = GameObject.Find("mami").GetComponent<Grandma>().speed;
+        audioSource.clip = walkSound;
+        audioSource.loop = true;
+        audioSource.Play();
+        isWalking = true;
+    }
+
+    
+	
+	// Update is called once per frame
+	void Update () {
         if (isWalking)
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
- 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
+  
+        if (Input.GetMouseButtonDown(0)) {
+           
             Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tempTarget.y = transform.position.y;    //  Horizontal movement only
             tempTarget.z = transform.position.z;
@@ -133,17 +191,10 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
-                if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
-                {
-                    UpdateTarget();
-                    FaceClickedPoint();
-                    audioSource.clip = walkSound;
-                    audioSource.loop = true;
-                    audioSource.Play();
 
-                    StartCoroutine(Wait(0.9f));
-                    
-                }
+                Walk();
+                //Animator.enabled = true;
+
             }
         }
 
@@ -160,6 +211,9 @@ public class Character : Interactible {
 
             isWalking = false;
             justStopped = true;
+
+
+            speed = initialSpeed;
 
         }
     }
