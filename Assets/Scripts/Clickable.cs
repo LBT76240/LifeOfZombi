@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Action {
-    Prendre, Manger,Default,Droite,Gauche, Caresser
+    Prendre, Manger, Default, Droite, Gauche, Caresser, DontHelp, Help
 };
 
 public abstract class Clickable : MonoBehaviour {
