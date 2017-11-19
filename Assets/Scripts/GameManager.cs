@@ -28,9 +28,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void changeCurrentScene(int value) {
-        lastScene = currentScene;
-        currentScene = value;
-        //changeBackGround.ChangeBack(value);
+        if(value != currentScene) {
+            lastScene = currentScene;
+            currentScene = value;
+        }
+        
     }
 
     public CursorMode curMod = CursorMode.Auto;
