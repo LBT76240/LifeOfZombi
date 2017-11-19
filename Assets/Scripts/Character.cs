@@ -253,9 +253,9 @@ public class Character : Interactible {
 
     void StartWalking()
     {
+        isWalking = true;
         Animator.runtimeAnimatorController = anim1 as RuntimeAnimatorController;
         armsup = true;
-        Walk();
         
     }
      IEnumerator WaitArmsDown(float waitTime)
