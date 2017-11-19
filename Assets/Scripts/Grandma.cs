@@ -17,6 +17,10 @@ public class Grandma : PNJ {
     [Tooltip("Speed of the grandma when crossing the street")]
     public float speed;
 
+    [SerializeField]
+    [Tooltip("Sound played when the cat is eaten")]
+    AudioClip eatenSound;
+
     //[SerializeField]
     //[Tooltip("Sound played when the cat is caressed")]
     //AudioClip caressedSound;
@@ -138,6 +142,8 @@ public class Grandma : PNJ {
                             alreadyInterract = true;
                         } else {
                             //  Transform to ZOMBIIIIIIIE
+                            audioSource.clip = eatenSound;
+                            audioSource.Play();
                             spriteRenderer.sprite = zombieGrandma;
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.OsDeGrandMere);

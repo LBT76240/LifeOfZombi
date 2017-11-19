@@ -19,6 +19,14 @@ public class LoveLady : PNJ {
 
     GameObject zombi;
 
+    [SerializeField]
+    [Tooltip("Sound played when the lady is in love")]
+    AudioClip inLoveSound;
+
+    [SerializeField]
+    [Tooltip("Sound played when the lady is scared")]
+    AudioClip scaredSound;
+
     private SpriteRenderer spriteRenderer;
 
     private AudioSource audioSource;
@@ -95,9 +103,12 @@ public class LoveLady : PNJ {
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().checkTime();
                 alreadyInterract = true;
-
+                audioSource.clip = scaredSound;
+                audioSource.Play();
                 break;
             case Item.FleurFleuriste:
+                audioSource.clip = inLoveSound;
+                audioSource.Play();
                 spriteRenderer.sprite = ladyInLove;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                 GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_humain);

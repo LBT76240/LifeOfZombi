@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212342186950579466}
   - component: {fileID: 114041260890032772}
   - component: {fileID: 61176575548074646}
+  - component: {fileID: 82480524697264950}
   m_Layer: 0
   m_Name: loveLady
   m_TagString: Untagged
@@ -67,6 +68,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.8, y: 18.35}
   m_EdgeRadius: 0
+--- !u!82 &82480524697264950
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605218752584954}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114041260890032772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,6 +171,8 @@ MonoBehaviour:
   normalLady: {fileID: 21300000, guid: efa7d1bd9b557df40bb2aabda087cfa2, type: 3}
   ladyInLove: {fileID: 21300000, guid: 212a896b1c888ff4d8c3e32808559e10, type: 3}
   zombieLady: {fileID: 21300000, guid: e052a03e9296c8543a8088e2a78d9f6c, type: 3}
+  inLoveSound: {fileID: 8300000, guid: c959e8b5ae3c1e84eb40048f3f1d4229, type: 3}
+  scaredSound: {fileID: 8300000, guid: d204caae8dd91d841a94fe6647227ad6, type: 3}
 --- !u!212 &212342186950579466
 SpriteRenderer:
   m_ObjectHideFlags: 1
