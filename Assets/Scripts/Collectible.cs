@@ -45,6 +45,9 @@ public class Collectible : Interactible {
         
         
         yield return new WaitForSeconds(0.1f);
+        if(zombi==null) {
+            zombi = GameObject.Find("zombi");
+        }
         Vector3 target = zombi.GetComponent<Character>().getTarget();
         bool doneWalking = false;
         while (!doneWalking) {

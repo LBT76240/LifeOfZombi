@@ -115,7 +115,7 @@ public class Grandma : PNJ {
         while (!doneWalking)
         {
             yield return new WaitForSeconds(0.1f);
-            if (!zombi.GetComponent<Character>().IsWalking)
+            if (zombi.GetComponent<Character>().IsDoneWalking)
             {
                 doneWalking = true;
 
