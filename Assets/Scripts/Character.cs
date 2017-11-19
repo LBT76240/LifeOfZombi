@@ -37,6 +37,8 @@ public class Character : Interactible {
     float time = 0.25f;
     bool armsup;
 
+    bool walkWithMamy = false;
+
 
     /// <summary>
     ///     True if the target toward the character must walk to is over the current position of the character when pointing and clicking
@@ -59,7 +61,9 @@ public class Character : Interactible {
         }
     }
 
+  
 
+    
     public Vector3 getTarget() {
         return target;
     }
@@ -171,6 +175,7 @@ public class Character : Interactible {
         audioSource.loop = true;
         audioSource.Play();
         isWalking = true;
+        walkWithMamy = true;
     }
 
     
@@ -180,7 +185,7 @@ public class Character : Interactible {
         if (isWalking)
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
   
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !walkWithMamy) {
            
             Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tempTarget.y = transform.position.y;    //  Horizontal movement only
@@ -210,6 +215,7 @@ public class Character : Interactible {
             Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
 
             isWalking = false;
+            walkWithMamy = false;
             justStopped = true;
 
 
@@ -218,20 +224,7 @@ public class Character : Interactible {
         }
     }
 
-    public Vector3 getTarget() {
-        return target;
-    }
-
-    void FaceClickedPoint() {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        Vector2 direction = new Vector2(
-            mousePosition.x - transform.position.x,
-            mousePosition.y - transform.position.y
-        );
-        transform.eulerAngles = new Vector3(transform.rotation.x, direction.x > 0 ? 0 : -180, transform.rotation.z);
-    }
+    
 
 
     void UpdateTarget() {

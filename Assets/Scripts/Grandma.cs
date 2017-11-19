@@ -79,7 +79,7 @@ public class Grandma : PNJ {
         while (Mathf.Abs(7.0f-transform.position.x)>0.1)
         {
             transform.position += new Vector3(speed * Time.deltaTime, 0, transform.position.z);
-            Debug.Log(transform.position.x);
+            
             Animator.enabled = true;
             yield return null;
         }
