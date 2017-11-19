@@ -73,7 +73,7 @@ public abstract class Clickable : MonoBehaviour {
         while (!doneWalking)
         {
             yield return new WaitForSeconds(0.1f);
-            if (!GameObject.Find("zombi").GetComponent<Character>().IsWalking)
+            if (GameObject.Find("zombi").GetComponent<Character>().IsDoneWalking)
             {
                 doneWalking = true;
 

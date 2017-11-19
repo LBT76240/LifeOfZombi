@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 82947571501476922}
   - component: {fileID: 114450769458905944}
   - component: {fileID: 95927902792842134}
+  - component: {fileID: 114434915682085576}
   m_Layer: 0
   m_Name: zombi
   m_TagString: Untagged
@@ -166,6 +167,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114434915682085576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256439907205552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e904f1434a9645d448d4ba7d7d2b5558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poundingHeart: {fileID: 1059559012519412, guid: 0f5907ec0778cfe4e815f5dce70633e7,
+    type: 2}
 --- !u!114 &114450769458905944
 MonoBehaviour:
   m_ObjectHideFlags: 1

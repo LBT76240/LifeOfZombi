@@ -12,7 +12,7 @@ public class InLove : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 2) {
+        if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 3) {
             heartLifeTime = 2f;
             StartCoroutine(Wait(1f));
         }
