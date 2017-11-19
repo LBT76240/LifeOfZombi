@@ -77,7 +77,7 @@ public class Cat : PNJ {
     IEnumerator FinishWalking(Action action) {
         yield return new WaitForSeconds(0.1f);
         Vector3 target = zombi.GetComponent<Character>().getTarget();
-        print(1);
+        
         bool doneWalking = false;
         while (!doneWalking) {
             yield return new WaitForSeconds(0.1f);
@@ -87,7 +87,7 @@ public class Cat : PNJ {
             }
 
         }
-        print(2);
+        
         if (Mathf.Abs(target.x - zombi.transform.position.x) < 0.2) {
             int i = isAlreadyStated();
             switch (action) {
