@@ -140,6 +140,6 @@ public class Seller : PNJ {
     }
 
     void spawnFlower() {
-        Instantiate(flowerGood, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.FleurFleuriste);
     }
 }
