@@ -51,8 +51,6 @@ public class MenuSelector : MonoBehaviour
     {
         if (can_select && !GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currently_selecting)
         {
-            
-
             hotspot.x = cursorMouse.height / 2;
             hotspot.y = cursorMouse.width / 2;
 
