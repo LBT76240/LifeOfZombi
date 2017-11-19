@@ -160,7 +160,7 @@ public class Character : Interactible {
             audioSource.loop = true;
             audioSource.Play();
 
-            isWalking = true;
+            StartCoroutine(Wait(0.9f));
 
         }
     }
@@ -196,9 +196,9 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
+                Animator.enabled = true;
 
                 Walk();
-                //Animator.enabled = true;
 
             }
         }
@@ -253,9 +253,9 @@ public class Character : Interactible {
 
     void StartWalking()
     {
-        isWalking = true;
         Animator.runtimeAnimatorController = anim1 as RuntimeAnimatorController;
         armsup = true;
+        Walk();
         
     }
      IEnumerator WaitArmsDown(float waitTime)
