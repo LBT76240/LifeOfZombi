@@ -132,11 +132,13 @@ public class Grandma : PNJ {
                             StartCoroutine(WalkTowardRightSide());
                             //  Grandma crosses the road thanks to the wonderful help of Zombi, who is such an amazing character making great efforts to become human
                             //  Make Zombi forward with the grandma
+                            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                             zombi.GetComponent<Character>().WalkWithGrandma();
                             alreadyInterract = true;
                         } else {
                             //  Transform to ZOMBIIIIIIIE
                             spriteRenderer.sprite = zombieGrandma;
+                            GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().currentTime += GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().tempsAction;
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().addItem(Item.OsDeGrandMere);
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Add(state_zombie);
                             GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().Moral -= 2.5f;

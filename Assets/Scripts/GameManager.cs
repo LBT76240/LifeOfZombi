@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
         if(value != currentScene) {
             lastScene = currentScene;
             currentScene = value;
+            currentTime += tempsChangementScene;
         }
         
     }
@@ -60,6 +61,10 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     float minMoral;
+
+    public int tempsAction;
+
+    public int tempsChangementScene;
 
     float moral;
 
