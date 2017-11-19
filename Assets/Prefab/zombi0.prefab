@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4057636125783152}
   - component: {fileID: 212367494528857222}
   - component: {fileID: 95354922586566810}
+  - component: {fileID: 114606845195954856}
   m_Layer: 0
   m_Name: zombi0
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793380906057276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7363946, y: 2.2328832, z: 0}
+  m_LocalPosition: {x: -2.22, y: 2.78, z: 0}
   m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 1793380906057276}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d531d3852c0069c4e8310e198fe8b49b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 484586e68f2143648aacf8a3b6f283fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -58,6 +59,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114606845195954856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1793380906057276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfa5a70e82aa8f4a9503673e3a83224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombi: {fileID: 0}
+  animator: {fileID: 95354922586566810}
 --- !u!212 &212367494528857222
 SpriteRenderer:
   m_ObjectHideFlags: 1
