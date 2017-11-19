@@ -9,9 +9,8 @@ public class Character : Interactible {
 
     public float maxX = 8;
     public float minX = -8;
-
     public float minY = -3;
-
+ 
     [SerializeField]
     [Tooltip("Sets the movement speed of the zombie")]
     float speed = 1.5f;
@@ -19,6 +18,11 @@ public class Character : Interactible {
     private float initialSpeed;
 
     Animator Animator;
+
+    [SerializeField]
+    public RuntimeAnimatorController anim1;
+    [SerializeField]
+    public RuntimeAnimatorController anim2;
 
     [SerializeField]
     [Tooltip("Sound played when clicking on the zombie")]
@@ -30,6 +34,10 @@ public class Character : Interactible {
  
     private AudioSource audioSource;
 
+    float time = 0.25f;
+    bool armsup;
+
+
     /// <summary>
     ///     True if the target toward the character must walk to is over the current position of the character when pointing and clicking
     /// </summary>
@@ -40,7 +48,7 @@ public class Character : Interactible {
     /// </summary>
 
     /// 
-
+    public bool justStopped;
     private bool isWalking;
 
     public bool IsWalking
@@ -50,6 +58,7 @@ public class Character : Interactible {
             return this.isWalking;
         }
     }
+
 
     public Vector3 getTarget() {
         return target;
@@ -86,14 +95,16 @@ public class Character : Interactible {
     // Use this for initialization
     void Start() {
 
+
         initialSpeed = speed;
         isWalking = false;
+   
 
         target = transform.position;
         action = Action.Prendre;
         Animator = GetComponent<Animator>();
         Animator.StopPlayback();
-        Animator.enabled = true;
+        //Animator.enabled = true;
         audioSource = GetComponent<AudioSource>();
 
         if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 1)
@@ -136,7 +147,6 @@ public class Character : Interactible {
         }
         target = transform.position;
     }
-
     void Walk() {
         if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
         {
@@ -162,12 +172,16 @@ public class Character : Interactible {
         audioSource.Play();
         isWalking = true;
     }
+
+    
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (isWalking)
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+  
         if (Input.GetMouseButtonDown(0)) {
-            
+           
             Vector3 tempTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tempTarget.y = transform.position.y;    //  Horizontal movement only
             tempTarget.z = transform.position.z;
@@ -177,19 +191,18 @@ public class Character : Interactible {
             //  Play the sound and face the target only if the mouse has not clicked on the character
             if (!isTargetOverWhenClicking)
             {
+
                 Walk();
                 //Animator.enabled = true;
+
             }
         }
 
-        //  Move only if the target is not on the character
-        
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
 
         //  If the character reaches the target, stop playing the walking sound
-        if (Mathf.Abs(transform.position.x - target.x) < 0.1) {
-            if(audioSource.clip == walkSound)
+        if (Mathf.Abs(transform.position.x - target.x) < 0.1)
+        {
+            if (audioSource.clip == walkSound)
             {
                 audioSource.loop = false;
                 audioSource.Stop();
@@ -197,10 +210,71 @@ public class Character : Interactible {
             Animator.Play(Animator.GetCurrentAnimatorStateInfo(0).shortNameHash, 0, 0);
 
             isWalking = false;
+            justStopped = true;
+
+
             speed = initialSpeed;
+
         }
     }
 
+    public Vector3 getTarget() {
+        return target;
+    }
+
+    void FaceClickedPoint() {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y
+        );
+        transform.eulerAngles = new Vector3(transform.rotation.x, direction.x > 0 ? 0 : -180, transform.rotation.z);
+    }
+
+
+    void UpdateTarget() {
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target.y = transform.position.y;    //  Horizontal movement only
+        target.z = transform.position.z;
+
+        if(target.x<minX) {
+            target.x = minX;
+        }
+
+        if (target.x > maxX) {
+            target.x = maxX;
+        }
+        
+    }
+
+   
+    IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        StartWalking();
+
+    }
+
+
+    void StartWalking()
+    {
+        isWalking = true;
+        Animator.runtimeAnimatorController = anim1 as RuntimeAnimatorController;
+        armsup = true;
+        
+    }
+     IEnumerator WaitArmsDown(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ArmsDown();
+    }
+
+    void ArmsDown()
+    {
+        armsup = false;
+    }
 
     override protected void OnMouseDownAction() {
         audioSource.clip = rhhhSound;
