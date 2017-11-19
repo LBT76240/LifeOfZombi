@@ -220,10 +220,20 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224932885547916800, guid: 640d22598a74af64e89376b4f4d1c35c,
+    - target: {fileID: 224462155761698098, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224423524624076056, guid: 640d22598a74af64e89376b4f4d1c35c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224941067503289670, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 114985805651434820, guid: 640d22598a74af64e89376b4f4d1c35c,
         type: 2}
@@ -290,7 +300,8 @@ MonoBehaviour:
   state_pnj: 
   maxMoral: 10
   minMoral: -10
-  time: 0
+  time: 12
+  currentTime: 0
   currently_selecting: 0
   defaultCursor: {fileID: 2800000, guid: 705e401274e00ea4988a8773c12de4b5, type: 3}
   collectibleCursor: {fileID: 2800000, guid: ec03cc10c8f53b44c8b1c706e082a5b0, type: 3}

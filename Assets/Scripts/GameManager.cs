@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int time;
 
+    public int currentTime = 0 ;
+
     public bool currently_selecting = false ;
 
     List<bool> actions;
