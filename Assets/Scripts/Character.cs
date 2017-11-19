@@ -61,9 +61,17 @@ public class Character : Interactible {
         }
     }
 
-  
+    private bool isDoneWalking;
 
-    
+    public bool IsDoneWalking 
+    {
+        get {
+            return this.isDoneWalking;
+        }
+    }
+
+
+
     public Vector3 getTarget() {
         return target;
     }
@@ -99,7 +107,7 @@ public class Character : Interactible {
     // Use this for initialization
     void Start() {
 
-
+        isDoneWalking = true;
         initialSpeed = speed;
         isWalking = false;
    
@@ -124,7 +132,7 @@ public class Character : Interactible {
             else
             {
                 Vector2 pos;
-                pos.x = 7.4f;
+                pos.x = 7f;
                 pos.y = 2.78f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
@@ -135,7 +143,7 @@ public class Character : Interactible {
             if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 1)
             {
                 Vector2 pos;
-                pos.x = -7.4f;
+                pos.x = -7f;
                 pos.y = -0.3f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
@@ -143,8 +151,22 @@ public class Character : Interactible {
             else
             {
                 Vector2 pos;
-                pos.x = 7.4f;
+                pos.x = 7f;
                 pos.y = -0.3f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            }
+        } else if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getCurrentScene() == 3) {
+            if (GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().getLastScene() == 2) {
+                Vector2 pos;
+                pos.x = -7f;
+                pos.y = -1f;
+                gameObject.transform.position = pos;
+                FaceClickedPoint();
+            } else {
+                Vector2 pos;
+                pos.x = 7f;
+                pos.y = -1f;
                 gameObject.transform.position = pos;
                 FaceClickedPoint();
             }
@@ -155,6 +177,7 @@ public class Character : Interactible {
         if (minY < Camera.main.ScreenToWorldPoint(Input.mousePosition).y)
         {
             UpdateTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            isDoneWalking = false;
             FaceClickedPoint();
             audioSource.clip = walkSound;
             audioSource.loop = true;
@@ -217,7 +240,7 @@ public class Character : Interactible {
             isWalking = false;
             walkWithMamy = false;
             justStopped = true;
-
+            isDoneWalking = true;
 
             speed = initialSpeed;
 
@@ -245,6 +268,9 @@ public class Character : Interactible {
    
     IEnumerator Wait(float waitTime)
     {
+        if(armsup) {
+            waitTime = 0f;
+        }
         yield return new WaitForSeconds(waitTime);
         StartWalking();
 
