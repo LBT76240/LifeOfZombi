@@ -15,6 +15,9 @@ public class Unload : MonoBehaviour {
         {
             Destroy(GameObject.FindGameObjectWithTag("gamemanager"));
         }
+        if (GameObject.FindGameObjectWithTag("MainCamera") != null) {
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+        }
         SceneManager.LoadScene("Menu");
 	}
 	
