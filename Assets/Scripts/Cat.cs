@@ -17,6 +17,10 @@ public class Cat : PNJ {
     [Tooltip("Sound played when the cat is caressed")]
     AudioClip caressedSound;
 
+    [SerializeField]
+    [Tooltip("Sound played when the cat is eaten")]
+    AudioClip eatenSound;
+
     GameObject zombi;
 
     private SpriteRenderer spriteRenderer;
@@ -104,6 +108,8 @@ public class Cat : PNJ {
                     break;
                 case Action.Manger:
                     //  Transform to ZOMBIIIIIIIE
+                    audioSource.clip = eatenSound;
+                    audioSource.Play();
                     i = isAlreadyStated();
                     if(i >= GameObject.FindGameObjectWithTag("gamemanager").GetComponent<GameManager>().state_pnj.Count)
                     {
